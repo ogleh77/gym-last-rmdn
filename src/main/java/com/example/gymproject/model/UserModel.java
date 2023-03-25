@@ -23,6 +23,14 @@ public class UserModel {
         insertOrUpdateUser(users, updateUser);
     }
 
+    public void delete(Users users) throws SQLException {
+        String deleteUser = "DELETE FROM users " +
+                "WHERE user_id='" + users.getUserId() + "'";
+        Statement statement = connection.createStatement();
+        statement.execute(deleteUser);
+        System.out.println("Deleted..");
+    }
+
     public ObservableList<Users> fetch() throws SQLException {
         String fetchQuery = "SELECT * FROM users";
         ObservableList<Users> users = FXCollections.observableArrayList();
