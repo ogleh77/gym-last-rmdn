@@ -1,4 +1,4 @@
-package com.example.gymproject.controllers;
+package com.example.gymproject.controllers.done;
 
 import animatefx.animation.FadeOut;
 import com.example.gymproject.dto.UserService;
@@ -55,23 +55,18 @@ public class UserChooserController extends CommonClass implements Initializable 
         FadeOut fadeOut = new FadeOut(choserPane);
         fadeOut.setOnFinished(e -> {
             thisStage.close();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/user-update.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/done/user-update.fxml"));
             try {
                 Scene scene = new Scene(loader.load());
                 UpdateUserController controller = loader.getController();
-                //  controller.setUser(listView.getSelectionModel().getSelectedItem());
-                controller.setActiveUser(UserService.users().get(0));
-
+                controller.setUser(listView.getSelectionModel().getSelectedItem());
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.initStyle(StageStyle.UNDECORATED);
                 stage.show();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
-            } catch (SQLException ex) {
-                throw new RuntimeException(ex);
             }
-
         });
         fadeOut.setDelay(Duration.millis(100));
         fadeOut.play();
@@ -96,8 +91,7 @@ public class UserChooserController extends CommonClass implements Initializable 
         ButtonType okBtn = new ButtonType("Haa", ButtonBar.ButtonData.OK_DONE);
         ButtonType cancelBtn = new ButtonType("Maya", ButtonBar.ButtonData.OK_DONE);
 
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Ma hubtaa inaad delete garayso " +
-                "userka " + username, okBtn, cancelBtn);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Ma hubtaa inaad delete garayso " + "userka " + username, okBtn, cancelBtn);
 
         Optional<ButtonType> result = alert.showAndWait();
 

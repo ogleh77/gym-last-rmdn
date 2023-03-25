@@ -11,4 +11,5 @@ module com.example.gymproject {
     opens com.example.gymproject.controllers to javafx.fxml;
 
     exports com.example.gymproject;
+    opens com.example.gymproject.controllers.done to javafx.fxml;
 }

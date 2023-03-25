@@ -22,3 +22,15 @@
     -fx-pref-width: 171;
     -fx-pref-height: 47;
 }
+
+.add-icon-only-btn {
+    -fx-background-color: #385d82;
+    -fx-pref-width: 51;
+    -fx-pref-height: 36;
+}
+
+.delete-icon-only-btn {
+    -fx-background-color: #d22b2b;
+    -fx-pref-width: 51;
+    -fx-pref-height: 36;
+}
