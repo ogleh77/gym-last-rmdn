@@ -1,0 +1,16 @@
+.btn-upload-image {
+    -fx-font-family: Verdana;
+    -fx-font-size: 14;
+    -fx-text-fill: #171717;
+    -fx-pref-height: 47;
+    -fx-background-color: #afd6e3;
+}
+
+.btn-save {
+    -fx-background-color: #385d82;
+    -fx-font-family: Verdana;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+    -fx-pref-width: 171;
+    -fx-pref-height: 47;
+}
