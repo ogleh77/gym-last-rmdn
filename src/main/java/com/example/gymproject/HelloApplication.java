@@ -1,6 +1,6 @@
 package com.example.gymproject;
 
-import com.example.gymproject.controllers.done.UpdateUserController;
+import com.example.gymproject.controllers.DashboardController;
 import com.example.gymproject.dto.UserService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,8 +14,10 @@ import java.sql.SQLException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymproject/views/gym.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymproject/views/dashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        DashboardController controller = fxmlLoader.getController();
+        controller.setActiveUser(UserService.users().get(0));
         stage.setScene(scene);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
