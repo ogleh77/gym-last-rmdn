@@ -1,6 +1,8 @@
 package com.example.gymproject.model;
 
+import com.example.gymproject.dto.PaymentService;
 import com.example.gymproject.entity.Customers;
+import com.example.gymproject.entity.Payments;
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.DbConnection;
 import javafx.collections.FXCollections;
@@ -37,6 +39,35 @@ public class CustomerModel {
         rs.close();
         statement.close();
         return customers;
+    }
+
+    public ObservableList<Customers> fetchQualifiedOfflineCustomers(String customerQuery, String fromDate, String toDate) throws SQLException {
+
+        ObservableList<Customers> customers = FXCollections.observableArrayList();
+
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(customerQuery);
+
+        while (rs.next()) {
+            String customerPhone = rs.getString("phone");
+            ObservableList<Payments> payments = PaymentService.fetchQualifiedOfflinePayment(customerPhone, fromDate, toDate);
+
+            if (payments == null || payments.isEmpty()) {
+                continue;
+            }
+            Customers customer = new Customers(rs.getInt("customer_id"), rs.getString("first_name")
+                    , rs.getString("last_name"), rs.getString("middle_name"),
+                    rs.getString("phone"), rs.getString("gander"), rs.getString("shift")
+                    , rs.getString("address"), rs.getString("image"), rs.getDouble("weight"),
+                    rs.getString("who_added"));
+
+            customer.setPayments(payments);
+            customers.add(customer);
+
+        }
+
+        return customers;
+
     }
     //---------------––Helpers---------------------
 

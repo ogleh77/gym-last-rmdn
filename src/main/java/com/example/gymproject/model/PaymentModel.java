@@ -55,6 +55,20 @@ public class PaymentModel {
         return getPayments(payments, statement, rs);
     }
 
+    public ObservableList<Payments> fetchQualifiedOfflinePayment(String customerPhone, String fromDate, String toDate) throws SQLException {
+
+        ObservableList<Payments> payments = FXCollections.observableArrayList();
+        Statement statement = connection.createStatement();
+        String query = "SELECT * FROM payments LEFT JOIN box b on payments.box_fk = b.box_id " + "WHERE customer_phone_fk='" + customerPhone + "'" + " AND is_online=false AND pending=false " + "AND exp_date between '" + fromDate + "' AND '" + toDate + "';";
+
+        ResultSet rs = statement.executeQuery(query);
+
+        getPayments(payments, statement, rs);
+        statement.close();
+        rs.close();
+        return payments;
+
+    }
     //__________------------Helpers____________------
 
 

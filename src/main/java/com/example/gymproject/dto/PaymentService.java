@@ -30,4 +30,8 @@ public class PaymentService {
         }
 
     }
+
+    public static ObservableList<Payments> fetchQualifiedOfflinePayment(String customerPhone, String fromDate, String toDate) throws SQLException {
+        return paymentModel.fetchQualifiedOfflinePayment(customerPhone, fromDate, toDate);
+    }
 }

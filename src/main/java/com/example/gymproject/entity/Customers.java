@@ -19,6 +19,10 @@ public class Customers {
     private final SimpleStringProperty whoAdded = new SimpleStringProperty();
 
     private ObservableList<Payments> payments;
+
+    public Customers() {
+    }
+
     public Customers(int customerId, String firstName, String lastName, String middleName, String phone, String gander, String shift, String address, String image, double weight, String whoAdded) {
         this.customerId = customerId;
         this.setFirstName(firstName);
@@ -175,6 +179,6 @@ public class Customers {
         return "\n [customerId: " +
                 customerId + " firstname: " +
                 firstName + "  lastname: " +
-                lastName + " gander " + gander + " phone: " + phone + "weight: " + weight + "\n payments: " + null + "]\n\n";
+                lastName + " gander " + gander + " phone: " + phone + "weight: " + weight + "\n payments: " + payments + "]\n\n";
     }
 }
