@@ -151,6 +151,7 @@ public class UserCreateController extends CommonClass implements Initializable {
                         Platform.runLater(() -> {
                             try {
                                 UserService.insertUser(users());
+                                UserService.users().add(users());
                                 Platform.runLater(() -> informationAlert("Wxad samaysay user cusub"));
                             } catch (SQLException e) {
                                 Platform.runLater(() -> errorMessage(e.getMessage()));

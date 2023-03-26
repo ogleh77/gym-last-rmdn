@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Customers {
-    private final int customerId;
+    private int customerId;
     private final SimpleStringProperty firstName = new SimpleStringProperty();
     private final SimpleStringProperty lastName = new SimpleStringProperty();
     private final SimpleStringProperty middleName = new SimpleStringProperty();
@@ -31,6 +31,9 @@ public class Customers {
         this.setWhoAdded(whoAdded);
     }
 
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
 
     public int getCustomerId() {
         return customerId;
@@ -154,5 +157,12 @@ public class Customers {
 
     public void setWhoAdded(String whoAdded) {
         this.whoAdded.set(whoAdded);
+    }
+    @Override
+    public String toString() {
+        return "\n [customerId: " +
+                customerId + " firstname: " +
+                firstName + "  lastname: " +
+                lastName + " gander " + gander + " phone: " + phone + "weight: " + weight + "\n payments: " + null + "]\n\n";
     }
 }

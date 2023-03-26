@@ -19,13 +19,13 @@ public class UserModel {
 
     public void update(Users users) throws SQLException {
         String updateUser = "UPDATE users SET first_name=?,last_name=?,phone=?,gender=?,shift=?,username=?,password=?,image=?,role=? \n" +
-                "WHERE user_id='" + users.getUserId() + "'";
+                "WHERE username='" + users.getUsername() + "'";
         insertOrUpdateUser(users, updateUser);
     }
 
     public void delete(Users users) throws SQLException {
         String deleteUser = "DELETE FROM users " +
-                "WHERE user_id='" + users.getUserId() + "'";
+                "WHERE username='" + users.getUsername() + "'";
         Statement statement = connection.createStatement();
         statement.execute(deleteUser);
         System.out.println("Deleted..");

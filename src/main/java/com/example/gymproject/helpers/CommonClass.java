@@ -5,6 +5,7 @@ import animatefx.animation.Shake;
 import animatefx.animation.SlideInLeft;
 import animatefx.animation.SlideInRight;
 import com.example.gymproject.entity.Customers;
+import com.example.gymproject.entity.Gym;
 import com.example.gymproject.entity.Users;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,7 +43,7 @@ public abstract class CommonClass {
 
     protected BorderPane borderPane;
     public boolean imageUploaded = false;
-    //protected Gym currentGym;
+    protected Gym currentGym;
     public final String[] images = {
             "/com/example/gymproject/style/icons/loading_5.gif",
 
@@ -268,5 +269,7 @@ public abstract class CommonClass {
         }
     }
 
-
+    public void setCurrentGym(Gym currentGym) {
+        this.currentGym = currentGym;
+    }
 }

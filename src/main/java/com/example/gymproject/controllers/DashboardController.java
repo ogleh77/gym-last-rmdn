@@ -41,6 +41,10 @@ public class DashboardController extends CommonClass implements Initializable {
         });
     }
 
+
+
+
+    //----------------_____Setting handler_____-------------
     @FXML
     void profileHandler() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/done/user-update.fxml"));
@@ -60,7 +64,23 @@ public class DashboardController extends CommonClass implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    @FXML
+    void userCreationHandler() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/done/user-creation.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = new Stage(StageStyle.UNDECORATED);
+        stage.setScene(scene);
+        stage.show();
+    }
 
+    @FXML
+    void updateUserHandler() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/done/user-chooser.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = new Stage(StageStyle.UNDECORATED);
+        stage.setScene(scene);
+        stage.show();
+    }
     @Override
     public void setActiveUser(Users activeUser) {
         super.setActiveUser(activeUser);

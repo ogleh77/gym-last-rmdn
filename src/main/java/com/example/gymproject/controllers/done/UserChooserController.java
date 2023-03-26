@@ -76,13 +76,7 @@ public class UserChooserController extends CommonClass implements Initializable 
     @FXML
     void deleteHandler() {
         if (listView.getSelectionModel().getSelectedItem() != null) {
-            // try {
-            // UserService.delete(listView.getSelectionModel().getSelectedItem());
-            //listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
             confirmDelete(listView.getSelectionModel().getSelectedItem().getUsername());
-//            } catch (SQLException e) {
-//                errorMessage(e.getMessage());
-//            }
         }
     }
 
@@ -97,9 +91,16 @@ public class UserChooserController extends CommonClass implements Initializable 
 
         if (result.get().equals(okBtn)) {
             listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
+            try {
+                UserService.delete(listView.getSelectionModel().getSelectedItem());
+            } catch (SQLException e) {
+                errorMessage(e.getMessage());
+            }
         } else {
             System.out.println("Cancel");
             alert.close();
         }
     }
+
+    // TODO: 26/03/2023 Ku dar confirmation for chek update insha Allah
 }
