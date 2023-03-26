@@ -2,6 +2,8 @@ package com.example.gymproject.entity;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Customers {
     private int customerId;
@@ -16,7 +18,7 @@ public class Customers {
     private final SimpleDoubleProperty weight = new SimpleDoubleProperty();
     private final SimpleStringProperty whoAdded = new SimpleStringProperty();
 
-
+    private ObservableList<Payments> payments;
     public Customers(int customerId, String firstName, String lastName, String middleName, String phone, String gander, String shift, String address, String image, double weight, String whoAdded) {
         this.customerId = customerId;
         this.setFirstName(firstName);
@@ -29,6 +31,7 @@ public class Customers {
         this.setImage(image);
         this.setWeight(weight);
         this.setWhoAdded(whoAdded);
+        this.payments = FXCollections.observableArrayList();
     }
 
     public void setCustomerId(int customerId) {
@@ -158,6 +161,15 @@ public class Customers {
     public void setWhoAdded(String whoAdded) {
         this.whoAdded.set(whoAdded);
     }
+
+    public ObservableList<Payments> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(ObservableList<Payments> payments) {
+        this.payments = payments;
+    }
+
     @Override
     public String toString() {
         return "\n [customerId: " +
