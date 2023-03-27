@@ -1,6 +1,7 @@
 package com.example.gymproject.dto;
 
 import com.example.gymproject.entity.Customers;
+import com.example.gymproject.entity.Payments;
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CustomException;
 import com.example.gymproject.model.CustomerModel;
@@ -37,6 +38,25 @@ public class CustomerService {
 
     private static void updateCustomer(Customers customer) throws SQLException {
         customerModel.update(customer);
+    }
+
+    public static void deleteCustomer(Customers customer) throws SQLException {
+        ObservableList<Payments> payments = PaymentService.fetchAllCustomersPayments(customer.getPhone());
+        try {
+            for (Payments payment : payments) {
+                if (payment.isOnline()) {
+                    throw new CustomException("Macmiilkani waxa uu leyahy payment u socda saso ay tahay ma masixi kartid" +
+                            " ilaa wakhtigiisu u dhamanayo insha Allah");
+                } else if (payment.isPending()) {
+                    throw new CustomException("Macmiilkan waxa waxa u xidhan payment sasoo ay tahay ma masixi kartid" +
+                            " ilaa wakhtigiisa loo furo kadibna u dhamado insha Allah");
+                }
+                customerModel.delete(customer);
+            }
+        } catch (SQLException e) {
+            throw new CustomException(e.getMessage());
+        }
+
     }
 
     public static ObservableList<Customers> fetchAllCustomer(Users activeUser) throws SQLException {

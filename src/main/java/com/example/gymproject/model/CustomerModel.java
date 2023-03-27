@@ -24,22 +24,22 @@ public class CustomerModel {
         insertOrUpdateStatement(customer, updateQuery, false);
     }
 
-//    public ObservableList<Customers> fetchAllCustomers(Users activeUser) throws SQLException {
-//        System.out.println("Called customers");
-//
-//        ObservableList<Customers> customers = FXCollections.observableArrayList();
-//
-//        String fetchCustomers = fetchByRoleAndGander(activeUser.getGender(), activeUser.getRole());
-//
-//        Statement statement = connection.createStatement();
-//        ResultSet rs = statement.executeQuery(fetchCustomers);
-//
-//        getCustomers(customers, rs);
-//
-//        rs.close();
-//        statement.close();
-//        return customers;
-//    }
+    public void delete(Customers customer) throws SQLException {
+        String deleteCustomerQuery = "DELETE FROM customers WHERE phone=" + customer.getPhone();
+        String deletePaymentsQuery = "DELETE FROM payments WHERE customer_phone_fk=" + customer.getPhone();
+
+        Statement statement = connection.createStatement();
+
+        statement.addBatch(deleteCustomerQuery);
+        statement.addBatch(deletePaymentsQuery);
+
+        statement.executeBatch();
+
+        System.out.println("Customer and it's payments were deleted");
+
+
+    }
+
 
     public ObservableList<Customers> fetchAllCustomers(Users activeUser) throws SQLException {
         System.out.println("Called customers");
@@ -52,7 +52,7 @@ public class CustomerModel {
         ResultSet rs = statement.executeQuery(fetchCustomers);
 
         while (rs.next()) {
-             getCustomers(customers, rs);
+            getCustomers(customers, rs);
         }
 
         rs.close();

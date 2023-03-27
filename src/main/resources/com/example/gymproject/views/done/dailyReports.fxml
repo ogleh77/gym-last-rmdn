@@ -12,15 +12,20 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="home-pane" stylesheets="@../style/css/long-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.controllers.DailyReportController">
-    <HBox layoutX="105.0" layoutY="28.0" prefHeight="36.0" prefWidth="1016.0" spacing="500.0" styleClass="top-pane" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="home-pane" stylesheets="@../../style/css/long-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.controllers.done.DailyReportController">
+    <HBox alignment="CENTER" layoutX="105.0" layoutY="28.0" prefHeight="36.0" prefWidth="1016.0" spacing="500.0" styleClass="top-pane" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+      <Label fx:id="gymName" prefHeight="33.0" prefWidth="425.0" styleClass="top-label" text="REPORTS PAGE" textFill="#fffbfb">
+         <font>
+            <Font name="Verdana" size="19.0" />
+         </font>
+      </Label>
 
         <HBox alignment="CENTER" onMouseClicked="#cancelPane" prefHeight="29.0" prefWidth="39.0" styleClass="cancel-pane">
             <HBox.margin>
                 <Insets left="90.0" />
             </HBox.margin>
             <ImageView fitHeight="29.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../style/icons/icons8-close-window-48.png" />
+                <Image url="@../../style/icons/icons8-close-window-48.png" />
             </ImageView>
         </HBox>
     </HBox>
@@ -29,7 +34,7 @@
             <Font name="Tahoma Bold" size="12.0" />
         </font>
     </Label>
-    <TableView fx:id="dailyTbView" layoutX="50.0" layoutY="122.0" prefHeight="225.0" prefWidth="616.0" stylesheets="@../style/css/home-table.css" AnchorPane.bottomAnchor="413.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="534.0" AnchorPane.topAnchor="122.0">
+    <TableView fx:id="dailyTbView" layoutX="50.0" layoutY="122.0" prefHeight="225.0" prefWidth="616.0" stylesheets="@../../style/css/home-table.css" AnchorPane.bottomAnchor="413.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="534.0" AnchorPane.topAnchor="122.0">
         <columns>
             <TableColumn fx:id="dailyReportDay" prefWidth="127.0" text="report day" />
             <TableColumn fx:id="totalRegister" prefWidth="169.0" text="total of registration" />
@@ -41,20 +46,17 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
         </columnResizePolicy>
     </TableView>
-    <Label layoutX="774.0" layoutY="396.0" prefHeight="24.0" prefWidth="398.0" stylesheets="@../style/css/message.css" text="Halkan waxaad ka heli kartaa waxad kehelaysaa" textFill="#6b6565">
+    <Label layoutX="774.0" layoutY="396.0" prefHeight="24.0" prefWidth="398.0" stylesheets="@../../style/css/message.css" text="Halkan waxaad ka heli kartaa waxad kehelaysaa" textFill="#6b6565">
         <font>
             <Font name="Tahoma Bold" size="16.0" />
         </font>
     </Label>
-    <HBox alignment="CENTER" layoutX="210.0" layoutY="75.0" prefHeight="24.0" prefWidth="950.0">
-
-    </HBox>
-    <DatePicker fx:id="startDate" layoutX="98.0" layoutY="409.0" prefHeight="36.0" prefWidth="193.0" stylesheets="@../style/css/combo-style.css" />
-    <DatePicker fx:id="endDate" layoutX="340.0" layoutY="409.0" prefHeight="36.0" prefWidth="193.0" stylesheets="@../style/css/combo-style.css" />
-    <JFXButton fx:id="searchBtn" layoutX="548.0" layoutY="404.0" onAction="#searchHandler" prefHeight="40.0" prefWidth="109.0" styleClass="btn-upload-image" stylesheets="@../style/css/button-style.css" text="Raadi">
+    <DatePicker fx:id="startDate" layoutX="98.0" layoutY="409.0" prefHeight="36.0" prefWidth="193.0" stylesheets="@../../style/css/combo-style.css" />
+    <DatePicker fx:id="endDate" layoutX="340.0" layoutY="409.0" prefHeight="36.0" prefWidth="193.0" stylesheets="@../../style/css/combo-style.css" />
+    <JFXButton fx:id="searchBtn" layoutX="548.0" layoutY="404.0" onAction="#searchHandler" prefHeight="40.0" prefWidth="109.0" styleClass="btn-upload-image" stylesheets="@../../style/css/button-style.css" text="Raadi">
         <graphic>
             <ImageView fx:id="imgViewSearch" fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="@../style/icons/icons8-search-50.png" />
+                <Image url="@../../style/icons/icons8-search-50.png" />
             </ImageView>
         </graphic>
     </JFXButton>
@@ -68,7 +70,7 @@
             <Font name="Tahoma Bold" size="14.0" />
         </font>
     </Label>
-    <TableView fx:id="reportTbView" layoutX="50.0" layoutY="470.0" prefHeight="225.0" prefWidth="616.0" stylesheets="@../style/css/home-table.css">
+    <TableView fx:id="reportTbView" layoutX="50.0" layoutY="470.0" prefHeight="225.0" prefWidth="616.0" stylesheets="@../../style/css/home-table.css">
         <columns>
             <TableColumn fx:id="reportTotalDay" prefWidth="127.0" text="report day" />
             <TableColumn fx:id="reportTotalReg" prefWidth="169.0" text="total of registration" />
@@ -81,14 +83,14 @@
         </columnResizePolicy>
     </TableView>
     <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="835.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
-        <Image url="@../style/icons/images.png" />
+        <Image url="@../../style/icons/images.png" />
     </ImageView>
-    <Label layoutX="774.0" layoutY="419.0" prefHeight="24.0" prefWidth="271.0" styleClass="header-message-style" stylesheets="@../style/css/message.css" text="Xog kobistii wiigi u danbayey iyo" textFill="#6b6565">
+    <Label layoutX="774.0" layoutY="419.0" prefHeight="24.0" prefWidth="271.0" styleClass="header-message-style" stylesheets="@../../style/css/message.css" text="Xog kobistii wiigi u danbayey iyo" textFill="#6b6565">
         <font>
             <Font name="Tahoma Bold" size="15.0" />
         </font>
     </Label>
-    <Label layoutX="774.0" layoutY="442.0" prefHeight="24.0" prefWidth="187.0" styleClass="header-message-style" stylesheets="@../style/css/message.css" text="Xogta aad radiso" textFill="#6b6565">
+    <Label layoutX="774.0" layoutY="442.0" prefHeight="24.0" prefWidth="187.0" styleClass="header-message-style" stylesheets="@../../style/css/message.css" text="Xogta aad radiso" textFill="#6b6565">
         <font>
             <Font name="Tahoma Bold" size="15.0" />
         </font>

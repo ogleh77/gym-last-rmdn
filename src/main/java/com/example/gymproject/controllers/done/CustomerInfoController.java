@@ -161,7 +161,7 @@ public class CustomerInfoController extends CommonClass implements Initializable
                 }
 
             };
-            payment.getPendingBtn().addEventFilter(MouseEvent.MOUSE_CLICKED, pending);
+         //   payment.getPendingBtn().addEventFilter(MouseEvent.MOUSE_CLICKED, pending);
             tableView.refresh();
         }
 
@@ -193,8 +193,8 @@ public class CustomerInfoController extends CommonClass implements Initializable
             PaymentService.holdPayment(payment, currentGym.getPendingDate());
             payment.setPending(true);
             payment.setOnline(false);
-            payment.getPendingBtn().setStyle(unPendStyle);
-            payment.getPendingBtn().setText("Fur");
+//            payment.getPendingBtn().setStyle(unPendStyle);
+//            payment.getPendingBtn().setText("Fur");
             System.out.println("Pended");
         } else {
             System.out.println("Canceled");
@@ -218,8 +218,8 @@ public class CustomerInfoController extends CommonClass implements Initializable
             payment.setPending(false);
             payment.setOnline(true);
             payment.setExpDate(payment.getExpDate());
-            payment.getPendingBtn().setStyle(pendStyle);
-            payment.getPendingBtn().setText("Xidh");
+//            payment.getPendingBtn().setStyle(pendStyle);
+//            payment.getPendingBtn().setText("Xidh");
             System.out.println("Wa furmay ");
         } else {
             System.out.println("Canceled");
