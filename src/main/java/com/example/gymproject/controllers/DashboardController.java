@@ -1,7 +1,10 @@
 package com.example.gymproject.controllers;
 
 import animatefx.animation.FadeIn;
+import animatefx.animation.SlideInLeft;
+import animatefx.animation.SlideOutLeft;
 import com.example.gymproject.controllers.done.UpdateUserController;
+import com.example.gymproject.controllers.main.RegistrationController;
 import com.example.gymproject.controllers.service.WarningController;
 import com.example.gymproject.dto.GymService;
 import com.example.gymproject.entity.Customers;
@@ -18,6 +21,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -36,9 +41,14 @@ public class DashboardController extends CommonClass implements Initializable {
     private Label warningLabel;
     @FXML
     private HBox warningParent;
+    @FXML
+    private VBox sidePane;
+    @FXML
+    private StackPane warningStack;
     private Stage dashboardStage;
     private final Gym currentGym;
     private ObservableList<Customers> warningList;
+    private boolean visible = false;
 
     public DashboardController() throws SQLException {
         this.currentGym = GymService.getGym();
@@ -52,8 +62,44 @@ public class DashboardController extends CommonClass implements Initializable {
         });
     }
 
+    @FXML
+    void menuClicked() {
+        if (visible) {
+            SlideOutLeft slideOutLeft = new SlideOutLeft();
+            slideOutLeft.setNode(sidePane);
+            slideOutLeft.play();
+            slideOutLeft.setOnFinished(e -> {
+                borderPane.setLeft(null);
+            });
+        } else {
+            new SlideInLeft(sidePane).play();
+            borderPane.setLeft(sidePane);
+        }
+        visible = !visible;
+    }
 
     //----------------_____Setting handler_____-------------
+
+
+    @FXML
+    void registrationHandler() throws IOException {
+        FXMLLoader loader = openWindow("/com/example/gymproject/views/main/registrations.fxml", borderPane,
+                sidePane, null, warningStack);
+        RegistrationController controller = loader.getController();
+        controller.setActiveUser(activeUser);
+        controller.setBorderPane(borderPane);
+        controller.setCurrentGym(currentGym);
+    }
+
+    @FXML
+    void reportHandler() throws IOException {
+        System.out.println("clicked");
+        FXMLLoader loader = openWindow("/com/example/gymproject/views/service/dailyReports.fxml", borderPane,
+                sidePane, null, warningStack);
+
+    }
+
+
     @FXML
     void profileHandler() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/done/user-update.fxml"));

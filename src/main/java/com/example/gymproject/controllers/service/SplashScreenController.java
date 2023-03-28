@@ -20,8 +20,8 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -51,10 +51,11 @@ public class SplashScreenController extends CommonClass implements Initializable
                 Scene scene = new Scene(fxmlLoader.load());
                 DashboardController controller = fxmlLoader.getController();
                 controller.setWarningList(warningList);
-                Stage stage = new Stage();
+                controller.setActiveUser(activeUser);
+                Stage stage = new Stage(StageStyle.UNDECORATED);
                 stage.setScene(scene);
                 stage.show();
-            } catch (IOException ex) {
+            } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
         });

@@ -1,8 +1,6 @@
 package com.example.gymproject.controllers.done;
 
-import com.example.gymproject.controllers.done.CustomerInfoController;
-import com.example.gymproject.controllers.done.PaymentController;
-import com.example.gymproject.controllers.done.RegistrationController;
+import com.example.gymproject.controllers.main.RegistrationController;
 import com.example.gymproject.dto.CustomerService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Users;
@@ -136,7 +134,7 @@ public class HomeController extends CommonClass implements Initializable {
     void updateHandler() throws IOException {
         if (tableView.getSelectionModel().getSelectedItem() != null) {
             // FXMLLoader loader = openNormalWindow("/com/example/gymproject/views/customer-info.fxml", borderPane);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/done/registrations.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/main/registrations.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = new Stage(StageStyle.UNDECORATED);
             RegistrationController controller = loader.getController();
