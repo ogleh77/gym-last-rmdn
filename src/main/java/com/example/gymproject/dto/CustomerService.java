@@ -94,5 +94,11 @@ public class CustomerService {
         return offlineCustomers;
     }
 
-
+    public static int predictNextId() throws CustomException {
+        try {
+            return (1 + customerModel.nextID());
+        } catch (SQLException e) {
+            throw new CustomException("Khalad " + e.getMessage());
+        }
+    }
 }

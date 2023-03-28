@@ -4,6 +4,7 @@ import animatefx.animation.FadeIn;
 import animatefx.animation.SlideInLeft;
 import animatefx.animation.SlideOutLeft;
 import com.example.gymproject.controllers.done.UpdateUserController;
+import com.example.gymproject.controllers.main.HomeController;
 import com.example.gymproject.controllers.main.RegistrationController;
 import com.example.gymproject.controllers.service.WarningController;
 import com.example.gymproject.dto.GymService;
@@ -79,7 +80,15 @@ public class DashboardController extends CommonClass implements Initializable {
     }
 
     //----------------_____Setting handler_____-------------
+    @FXML
+    void homeHandler() throws IOException {
+        FXMLLoader loader = openWindow("/com/example/gymproject/views/main/home.fxml", borderPane,
+                sidePane, null, warningStack);
+        HomeController controller = loader.getController();
+        controller.setActiveUser(activeUser);
+        controller.setBorderPane(borderPane);
 
+    }
 
     @FXML
     void registrationHandler() throws IOException {

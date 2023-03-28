@@ -5,6 +5,7 @@ import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Gym;
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CommonClass;
+import com.example.gymproject.helpers.CustomException;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import javafx.application.Platform;
@@ -74,6 +75,12 @@ public class RegistrationController extends CommonClass implements Initializable
     private Label weightValidation;
     private boolean isCustomerNew = true;
     private ObservableList<Customers> customersList;
+
+    private int newCustomerID = 0;
+
+    public RegistrationController() throws CustomException {
+        newCustomerID = CustomerService.predictNextId();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -211,7 +218,7 @@ public class RegistrationController extends CommonClass implements Initializable
         String _shift = shift.getValue() != null ? shift.getValue() : "Morning";
 
         if (customer == null) {
-            customer = new Customers(0, firstName.getText().trim(), lastName.getText().trim(), middleName.getText().trim(), phone.getText().trim(), gander, _shift, _address, image, _weight, activeUser.getUsername());
+            customer = new Customers(newCustomerID, firstName.getText().trim(), lastName.getText().trim(), middleName.getText().trim(), phone.getText().trim(), gander, _shift, _address, image, _weight, activeUser.getUsername());
         } else {
             customer.setShift(_shift);
             customer.setCustomerId(customerId);

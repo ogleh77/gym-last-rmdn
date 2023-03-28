@@ -1,5 +1,7 @@
-package com.example.gymproject.controllers.done;
+package com.example.gymproject.controllers.main;
 
+import com.example.gymproject.controllers.done.CustomerInfoController;
+import com.example.gymproject.controllers.done.PaymentController;
 import com.example.gymproject.controllers.main.RegistrationController;
 import com.example.gymproject.dto.CustomerService;
 import com.example.gymproject.entity.Customers;

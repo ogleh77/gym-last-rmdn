@@ -55,7 +55,7 @@ public class CustomerModel {
             if (payments == null || payments.isEmpty()) {
                 continue;
             }
-            getCustomers(customers, rs,payments);
+            getCustomers(customers, rs, payments);
         }
         rs.close();
         statement.close();
@@ -77,7 +77,7 @@ public class CustomerModel {
             if (payments == null || payments.isEmpty()) {
                 continue;
             }
-            getCustomers(customers, rs,payments);
+            getCustomers(customers, rs, payments);
         }
         rs.close();
         statement.close();
@@ -131,8 +131,20 @@ public class CustomerModel {
         return customers;
 
     }
-    //---------------––Helpers---------------------
 
+    public int nextID() throws SQLException {
+        String query = "SELECT * FROM SQLITE_SEQUENCE WHERE name='customers'";
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(query);
+
+        if (rs.next()) {
+            return rs.getInt("seq");
+        }
+
+        return 0;
+    }
+
+    //---------------––Helpers---------------------
     private void getCustomers(ObservableList<Customers> customers, ResultSet rs, ObservableList<Payments> payment) throws SQLException {
         Customers customer = new Customers(rs.getInt("customer_id"), rs.getString("first_name")
                 , rs.getString("last_name"), rs.getString("middle_name"),
@@ -178,4 +190,6 @@ public class CustomerModel {
         System.out.println(fetchQuery);
         return fetchQuery;
     }
+
+
 }

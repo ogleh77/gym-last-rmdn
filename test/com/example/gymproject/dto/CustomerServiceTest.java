@@ -1,6 +1,7 @@
 package com.example.gymproject.dto;
 
 import com.example.gymproject.entity.Users;
+import com.example.gymproject.helpers.CustomException;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
@@ -56,5 +57,18 @@ class CustomerServiceTest {
     void deleteCustomer() throws SQLException {
         Users user = UserService.users().get(0);
         CustomerService.deleteCustomer(CustomerService.fetchAllCustomer(user).get(0));
+    }
+
+    @Test
+    void fetchOfflineCustomer() {
+    }
+
+    @Test
+    void fetchOnlineCustomer() {
+    }
+
+    @Test
+    void predictNextId() throws CustomException {
+        System.out.println(CustomerService.predictNextId());
     }
 }
