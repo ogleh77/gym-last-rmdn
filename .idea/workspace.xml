@@ -5,23 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53d89cb0-db6f-4418-906f-24ac9edf989a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/OutDatedController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/CardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/customer-card.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/outdated.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/com/example/gymproject/model/CustomerModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/CustomerInfoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/HomeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/css/home-table.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons/icons8-info-squared-50 (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons/icons8-info-squared-50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons/icons8-member-50 (1).png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons/icons8-mobile-payment-50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons/icons8-search-50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/customer-info.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/home.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54c41628-eec8-47fc-aa3a-cd8b52cb159f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54c41628-eec8-47fc-aa3a-cd8b52cb159f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/OutDatedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/OutDatedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/PaymentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto/PaymentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Customers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Payments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Payments.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/CustomerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/CustomerModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/PaymentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/PaymentModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/css/combo-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/css/combo-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/payments.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/payments.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/outdated.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/outdated.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/example/gymproject/dto/CustomerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/example/gymproject/dto/CustomerServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,8 +86,8 @@
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/css" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymproject/model" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done" />
@@ -96,7 +102,7 @@
       <recent name="com.example.gymproject.dto" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CustomerModelTest.fetchQualifiedOfflineCustomers">
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.gymproject.HelloApplication" />
       <module name="gym-project" />
@@ -142,6 +148,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CustomerServiceTest.fetchAllCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gym-project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.gymproject.dto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.gymproject.dto" />
+      <option name="MAIN_CLASS_NAME" value="com.example.gymproject.dto.CustomerServiceTest" />
+      <option name="METHOD_NAME" value="fetchAllCustomer" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CustomerServiceTest.insertData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gym-project" />
       <extension name="coverage">
@@ -158,29 +180,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaymentServiceTest.fetchAllCustomersPayments" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gym-project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.gymproject.dto.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.gymproject.dto" />
-      <option name="MAIN_CLASS_NAME" value="com.example.gymproject.dto.PaymentServiceTest" />
-      <option name="METHOD_NAME" value="fetchAllCustomersPayments" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JUnit.CustomerServiceTest.fetchAllCustomer" />
         <item itemvalue="JUnit.CustomerModelTest.fetchQualifiedOfflineCustomers" />
         <item itemvalue="JUnit.CustomerModelTest.insertCustomer" />
         <item itemvalue="JUnit.CustomerServiceTest.insertData" />
-        <item itemvalue="Application.HelloApplication" />
-        <item itemvalue="JUnit.PaymentServiceTest.fetchAllCustomersPayments" />
       </list>
     </recent_temporary>
   </component>
@@ -203,6 +209,8 @@
       <workItem from="1679827450443" duration="2217000" />
       <workItem from="1679838197747" duration="4778000" />
       <workItem from="1679850105982" duration="1779000" />
+      <workItem from="1679851914565" duration="7142000" />
+      <workItem from="1679893585595" duration="4005000" />
     </task>
     <servers />
   </component>

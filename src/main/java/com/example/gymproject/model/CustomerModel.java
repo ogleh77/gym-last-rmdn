@@ -24,6 +24,23 @@ public class CustomerModel {
         insertOrUpdateStatement(customer, updateQuery, false);
     }
 
+//    public ObservableList<Customers> fetchAllCustomers(Users activeUser) throws SQLException {
+//        System.out.println("Called customers");
+//
+//        ObservableList<Customers> customers = FXCollections.observableArrayList();
+//
+//        String fetchCustomers = fetchByRoleAndGander(activeUser.getGender(), activeUser.getRole());
+//
+//        Statement statement = connection.createStatement();
+//        ResultSet rs = statement.executeQuery(fetchCustomers);
+//
+//        getCustomers(customers, rs);
+//
+//        rs.close();
+//        statement.close();
+//        return customers;
+//    }
+
     public ObservableList<Customers> fetchAllCustomers(Users activeUser) throws SQLException {
         System.out.println("Called customers");
 
@@ -34,7 +51,9 @@ public class CustomerModel {
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery(fetchCustomers);
 
-        getCustomers(customers, rs);
+        while (rs.next()) {
+             getCustomers(customers, rs);
+        }
 
         rs.close();
         statement.close();
@@ -72,9 +91,6 @@ public class CustomerModel {
     //---------------––Helpers---------------------
 
     private void getCustomers(ObservableList<Customers> customers, ResultSet rs) throws SQLException {
-        if (!rs.next()) {
-            return;
-        }
         Customers customer = new Customers(rs.getInt("customer_id"), rs.getString("first_name")
                 , rs.getString("last_name"), rs.getString("middle_name"),
                 rs.getString("phone"), rs.getString("gander"), rs.getString("shift")

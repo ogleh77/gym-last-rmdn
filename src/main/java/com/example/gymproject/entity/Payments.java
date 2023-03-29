@@ -1,5 +1,6 @@
 package com.example.gymproject.entity;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -18,16 +19,9 @@ public class Payments {
     private final SimpleBooleanProperty poxing = new SimpleBooleanProperty();
     private Box box;
     private String customerFK;
-    private SimpleBooleanProperty online = new SimpleBooleanProperty();
-    private SimpleBooleanProperty pending = new SimpleBooleanProperty();
-
-    public Payments() {
-        this.paymentID = 0;
-    }
-
-    public Payments(int paymentID) {
-        this.paymentID = paymentID;
-    }
+    private final SimpleBooleanProperty online = new SimpleBooleanProperty();
+    private final SimpleBooleanProperty pending = new SimpleBooleanProperty();
+    private final JFXButton pendingBtn;
 
     public Payments(int paymentID, String paymentDate, LocalDate expDate, String month, String year, double amountPaid, String paidBy, double discount, boolean poxing, String customerFK, boolean online, boolean pending) {
         this.paymentID = paymentID;
@@ -42,6 +36,19 @@ public class Payments {
         this.customerFK = customerFK;
         this.setOnline(online);
         this.setPending(pending);
+        this.pendingBtn = new JFXButton("xidh");
+        String unPendStyle = "-fx-background-color: red;-fx-text-fill: white;-fx-font-family:Verdana;-fx-pref-width: 100;-fx-font-size: 15";
+        String pendStyle = "-fx-background-color: #afd6e3;-fx-text-fill: black;-fx-font-family:Verdana;-fx-pref-width: 100;-fx-font-size: 15";
+        pendingBtn.setStyle(pendStyle);
+        if (!this.online.get() && !this.pending.get()) {
+            this.pendingBtn.setText("----");
+            this.pendingBtn.setDisable(true);
+            this.pendingBtn.setStyle(unPendStyle);
+        } else if (this.isPending() && !this.isOnline()) {
+            this.getPendingBtn().setStyle(unPendStyle);
+            this.getPendingBtn().setText("Fur");
+        }
+
     }
 
     public int getPaymentID() {
@@ -178,6 +185,10 @@ public class Payments {
 
     public void setCustomerFK(String customerFK) {
         this.customerFK = customerFK;
+    }
+
+    public JFXButton getPendingBtn() {
+        return pendingBtn;
     }
 
     @Override

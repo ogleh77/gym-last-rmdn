@@ -202,20 +202,9 @@ public class PaymentController extends CommonClass implements Initializable {
                         double _discount = (!discount.getText().isEmpty() || !discount.getText().isBlank() ? Double.parseDouble(discount.getText()) : 0);
 
                         currentCost -= _discount;
+                        Payments payment = new Payments(0, LocalDate.now().toString(), expDate.getValue(), String.valueOf(LocalDate.now().getMonth()), String.valueOf(LocalDate.now().getYear()), currentCost, paidBy.getValue(), _discount, poxing.isSelected(), customer.getPhone(), true, false);
 
-                        Payments payment = new Payments();
-                        payment.setAmountPaid(currentCost);
-                        payment.setExpDate(expDate.getValue());
-                        payment.setPaidBy(paidBy.getValue());
-                        payment.setPoxing(poxing.isSelected());
-                        payment.setCustomerFK(customer.getPhone());
-                        payment.setYear(String.valueOf(LocalDate.now().getYear()));
-                        payment.setPaymentDate(LocalDate.now().toString());
-                        payment.setMonth(String.valueOf(LocalDate.now().getMonth()));
-                        payment.setDiscount(_discount);
-                        payment.setOnline(true);
-
-
+                       
                         if (boxChooser.getValue() != null && !boxChooser.getValue().getBoxName().matches("remove box")) {
                             payment.setBox(boxChooser.getValue());
                         }
@@ -305,8 +294,7 @@ public class PaymentController extends CommonClass implements Initializable {
 
     private void tellInfo(LocalDate expDate, boolean isPending) {
         paymentInfo.setText(isPending ? "Macmillku payment ayaa u xidhan" : "Macmiilkan wakhtigu kama dhicin ");
-        infoMin.setText(isPending ? "Macmiilka waxa u xidhay payment saaso ay tahay looma samayn karo " +
-                "payment cusub" : "wuxuse ka dhaacyaa [" + expDate.toString() + "] Insha Allah");
+        infoMin.setText(isPending ? "Macmiilka waxa u xidhay payment saaso ay tahay looma samayn karo " + "payment cusub" : "wuxuse ka dhaacyaa [" + expDate.toString() + "] Insha Allah");
         paymentInfo.setStyle("-fx-text-fill: red;");
         FadeIn fadeIn = new FadeIn(paymentInfo);
         fadeIn.setCycleCount(50);

@@ -1,4 +1,4 @@
-package com.example.gymproject.controllers;
+package com.example.gymproject.controllers.done;
 
 import com.example.gymproject.controllers.done.CardController;
 import com.example.gymproject.dto.CustomerService;

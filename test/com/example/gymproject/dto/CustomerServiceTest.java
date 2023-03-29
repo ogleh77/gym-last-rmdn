@@ -30,8 +30,10 @@ class CustomerServiceTest {
 
     @Test
     void fetchAllCustomer() throws SQLException {
+        Users user = UserService.users().get(0);
 
-
+        System.out.println(user);
+        System.out.println(CustomerService.fetchAllCustomer(user));
 //        user.setRole("super_admin");
 //        user.setGender("Female");
         //  UserService.update(user);
@@ -40,5 +42,13 @@ class CustomerServiceTest {
         //System.out.println(CustomerService.fetchAllCustomer(user));
 
         //CustomerService.insertOrUpdateCustomer(customer, false);
+    }
+
+    @Test
+    void insertOrUpdateCustomer() {
+    }
+
+    @Test
+    void fetchQualifiedOfflineCustomers() {
     }
 }

@@ -3,6 +3,7 @@ package com.example.gymproject.model;
 import com.example.gymproject.dto.BoxService;
 import com.example.gymproject.entity.Box;
 import com.example.gymproject.entity.Payments;
+import com.example.gymproject.helpers.CustomException;
 import com.example.gymproject.helpers.DbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -43,6 +44,62 @@ public class PaymentModel {
         }
     }
 
+    public void holdPayment(Payments payment, int daysRemain) throws SQLException {
+        connection.setAutoCommit(false);
+
+        String holdQuery = "INSERT INTO pending(days_remain,payment_fk)" + "VALUES (" + daysRemain + "," + payment.getPaymentID() + ")";
+
+        try (Statement statement = connection.createStatement()) {
+            String paymentQuery = "UPDATE payments SET is_online=false,pending=true WHERE payment_id=" + payment.getPaymentID();
+            if (payment.getBox() != null) {
+                System.out.println("Payment has a box");
+                paymentQuery = "UPDATE payments SET is_online=false,pending=true,box_fk=null WHERE payment_id=" + payment.getPaymentID();
+                BoxService.updateBox(payment.getBox());
+            } else {
+                System.out.println("Payment dosnt have a box");
+            }
+
+            statement.addBatch(holdQuery);
+            statement.addBatch(paymentQuery);
+            statement.executeBatch();
+
+            connection.commit();
+        } catch (SQLException e) {
+            connection.rollback();
+        }
+    }
+    public void unHold(Payments payment) throws SQLException {
+        connection.setAutoCommit(false);
+        Statement statement = connection.createStatement();
+        try {
+
+            int daysRemain = daysRemain(payment.getPaymentID());
+
+            if (daysRemain != 0) {
+
+                LocalDate remainedDays = LocalDate.now().plusDays(daysRemain);
+
+                String deleteQuery = "DELETE FROM pending WHERE payment_fk=" + payment.getPaymentID();
+
+                String unPendPayment = "UPDATE payments SET is_online=true, pending=false," + "exp_date='" + remainedDays + "' WHERE payment_id=" + payment.getPaymentID();
+
+                statement.addBatch(deleteQuery);
+                statement.addBatch(unPendPayment);
+                statement.executeBatch();
+
+                connection.commit();
+                payment.setExpDate(LocalDate.now().plusDays(daysRemain));
+            } else {
+                throw new CustomException("Paymentkan lama xayarin fadlan iska hubi");
+            }
+        } catch (SQLException e) {
+            connection.rollback();
+            throw e;
+        }
+
+
+    }
+
     public ObservableList<Payments> fetchAllCustomersPayments(String phone) throws SQLException {
         //-------Fetch payments according to customer that belongs--------tested......
 
@@ -70,7 +127,20 @@ public class PaymentModel {
 
     }
     //__________------------Helpers____________------
-
+    private int daysRemain(int paymentID) throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM pending WHERE payment_fk=" + paymentID);
+        if (rs.next()) {
+            int daysRemain = rs.getInt("days_remain");
+            System.out.println("Founded");
+            return daysRemain;
+        } else {
+            System.out.println("Not exist");
+        }
+        statement.close();
+        rs.close();
+        return 0;
+    }
 
     private ObservableList<Payments> getPayments(ObservableList<Payments> payments, Statement statement, ResultSet rs) throws SQLException {
         Payments payment;
@@ -91,19 +161,7 @@ public class PaymentModel {
     }
 
     private Payments getPayments(ResultSet rs) throws SQLException {
-        Payments payment = new Payments(rs.getInt("payment_id"));
-        payment.setPaymentDate(rs.getString("payment_date"));
-        payment.setExpDate(LocalDate.parse(rs.getString("exp_date")));
-        payment.setAmountPaid(rs.getDouble("amount_paid"));
-        payment.setPaidBy(rs.getString("paid_by"));
-        payment.setPoxing(rs.getBoolean("poxing"));
-        payment.setDiscount(rs.getDouble("discount"));
-        payment.setCustomerFK(rs.getString("customer_phone_fk"));
-        payment.setOnline(rs.getBoolean("is_online"));
-        payment.setYear(rs.getString("year"));
-        payment.setPending(rs.getBoolean("pending"));
-        payment.setMonth(rs.getString("month"));
-        return payment;
+        return new Payments(rs.getInt("payment_id"), rs.getString("payment_date"), LocalDate.parse(rs.getString("exp_date")), rs.getString("month"), rs.getString("year"), rs.getDouble("amount_paid"), rs.getString("paid_by"), rs.getDouble("discount"), rs.getBoolean("poxing"), rs.getString("customer_phone_fk"), rs.getBoolean("is_online"), rs.getBoolean("pending"));
     }
 
 }
