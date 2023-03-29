@@ -120,14 +120,11 @@ public class HomeController extends CommonClass implements Initializable {
 
     @FXML
     void deleteHandler() {
-//        if (tableView.getSelectionModel().getSelectedItem() != null) {
-//
-//            FXMLLoader loader = openNormalWindow("/com/example/gymdesktop2023/views/desing/customer-info.fxml", borderPane);
-//            CustomerInfoController controller = loader.getController();
-//            controller.setCustomer(tableView.getSelectionModel().getSelectedItem());
-//            // controller.setBorderPane(borderPane);
-//        }
-        tableView.refresh();
+        try {
+            CustomerService.deleteCustomer(customer);
+        } catch (SQLException e) {
+            infoAlert(e.getMessage());
+        }
     }
 
     @FXML

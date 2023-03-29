@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 public class CustomerService {
+
     private static final CustomerModel customerModel = new CustomerModel();
     private static ObservableList<Customers> allCustomersList;
     private static ObservableList<Customers> offlineCustomers;
@@ -41,15 +42,20 @@ public class CustomerService {
     }
 
     public static void deleteCustomer(Customers customer) throws SQLException {
-        ObservableList<Payments> payments = PaymentService.fetchAllCustomersPayments(customer.getPhone());
         try {
+            if (customer==null){
+                throw new CustomException("Fadlan ka dooro table ka macmiilka aad donayso inad masaxdo");
+            }
+            ObservableList<Payments> payments = PaymentService.fetchAllCustomersPayments(customer.getPhone());
+
+            String pendPaymentMessage = "Macmiilkan waxa uu xidhay payment sasoo ay tahay ma delete garayn kartid" +
+                    "Marka hore dib u fur paymentkisa marka wakhtigu u dhamadana wad masaxi kartaa.";
+            String onlinePaymentMessage = "Macmiilkan waxa uu u socda payment sasoo ay tahay ma delete garayn kartid" +
+                    "ilaa wakhtigiisa uu dhamaysanyo.";
+
             for (Payments payment : payments) {
-                if (payment.isOnline()) {
-                    throw new CustomException("Macmiilkani waxa uu leyahy payment u socda saso ay tahay ma masixi kartid" +
-                            " ilaa wakhtigiisu u dhamanayo insha Allah");
-                } else if (payment.isPending()) {
-                    throw new CustomException("Macmiilkan waxa waxa u xidhan payment sasoo ay tahay ma masixi kartid" +
-                            " ilaa wakhtigiisa loo furo kadibna u dhamado insha Allah");
+                if (payment.isOnline() || payment.isPending()) {
+                    throw new CustomException(payment.isOnline() ? onlinePaymentMessage : pendPaymentMessage);
                 }
                 customerModel.delete(customer);
             }

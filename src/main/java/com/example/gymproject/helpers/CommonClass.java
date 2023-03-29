@@ -143,7 +143,7 @@ public abstract class CommonClass {
     public Alert errorMessage(String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setContentText(message);
-        alert.setTitle("Error occur");
+        alert.setTitle("Khald ba dhacay");
         alert.show();
         return alert;
     }
@@ -152,10 +152,18 @@ public abstract class CommonClass {
     public Alert informationAlert(String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(message);
-        alert.setTitle("congratulations");
+        alert.setTitle("Hablyo!");
         alert.show();
         return alert;
     }
+    public Alert infoAlert(String message) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(message);
+        alert.setTitle("War-gelin!");
+        alert.show();
+        return alert;
+    }
+
 
     public File selectedFile() {
         FileChooser chooser = new FileChooser();

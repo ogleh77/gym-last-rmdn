@@ -46,7 +46,7 @@ public class BackupController extends CommonClass implements Initializable {
                     pathBtn.setDisable(true);
                 }
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                errorMessage(e.getMessage());
             }
         });
 
@@ -122,7 +122,7 @@ public class BackupController extends CommonClass implements Initializable {
 
                         Platform.runLater(() -> informationAlert("Backuped successfully."));
                     } catch (SQLException e) {
-                        Platform.runLater(() -> informationAlert(e.getMessage()));
+                        Platform.runLater(() -> infoAlert(e.getMessage()));
                         /// e.printStackTrace();
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
@@ -145,7 +145,7 @@ public class BackupController extends CommonClass implements Initializable {
 
                         Platform.runLater(() -> informationAlert("Restored successfully."));
                     } catch (SQLException e) {
-                        Platform.runLater(() -> informationAlert(e.getMessage()));
+                        Platform.runLater(() -> infoAlert(e.getMessage()));
                         /// e.printStackTrace();
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
