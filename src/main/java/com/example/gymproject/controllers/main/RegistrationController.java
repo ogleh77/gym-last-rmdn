@@ -1,5 +1,7 @@
 package com.example.gymproject.controllers.main;
 
+import animatefx.animation.Shake;
+import com.example.gymproject.controllers.done.UpdateUserController;
 import com.example.gymproject.dto.CustomerService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Gym;
@@ -13,10 +15,9 @@ import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -24,8 +25,10 @@ import javafx.scene.layout.BorderPane;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class RegistrationController extends CommonClass implements Initializable {
@@ -76,10 +79,15 @@ public class RegistrationController extends CommonClass implements Initializable
     private boolean isCustomerNew = true;
     private ObservableList<Customers> customersList;
 
-    private int newCustomerID = 0;
+    private final int newCustomerID;
+
+    private boolean done = false;
+    private final ButtonType payment;
 
     public RegistrationController() throws CustomException {
         newCustomerID = CustomerService.predictNextId();
+        this.payment = new ButtonType("Go to payment", ButtonBar.ButtonData.OK_DONE);
+
     }
 
     @Override
@@ -97,6 +105,10 @@ public class RegistrationController extends CommonClass implements Initializable
             registerBtn.setGraphic(null);
             registerBtn.setText(isCustomerNew ? "Saved" : "Updated");
             System.out.println("Done");
+
+            if (done) {
+                paymentMethod();
+            }
         });
     }
 
@@ -195,7 +207,8 @@ public class RegistrationController extends CommonClass implements Initializable
                             customersList.add(0, savingCustomer());
                         }
                         Thread.sleep(1000);
-                        Platform.runLater(() -> informationAlert(isCustomerNew ? "Waxaad diwaan gelisay macmiil cusub" : "Waxaad update garaysay macmiil"));
+                        // Platform.runLater(() -> informationAlert(isCustomerNew ? "Waxaad diwaan gelisay macmiil cusub" : "Waxaad update garaysay macmiil"));
+                        done = true;
 //                        } else {
                         // customersList.set(CustomerService.binarySearch(customersList, 0, customersList.size() - 1, customer.getCustomerId()), customer);
                         // }
@@ -267,5 +280,29 @@ public class RegistrationController extends CommonClass implements Initializable
 
     }
 
+    private void paymentMethod() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, customer.getFirstName() + "Waxaad diwaan gelisay macmiil cusub " +
+                "Fadlan u gudub qaybta lacag bixinta macniilka", payment);
 
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == payment) {
+            try {
+                openPayment();
+            } catch (IOException e) {
+                errorMessage(e.getMessage());
+                throw new RuntimeException(e);
+            }
+        } else {
+            Shake shake = new Shake(registerBtn);
+            registerBtn.setStyle("-fx-border-color: red;-fx-border-width: 1");
+            shake.setCycleCount(20);
+            shake.play();
+        }
+    }
+
+    private void openPayment() throws IOException {
+        FXMLLoader loader = openNormalWindow("/com/example/gymproject/views/main/payments.fxml", borderPane);
+        PaymentController controller = loader.getController();
+        controller.setCustomer(customer);
+    }
 }

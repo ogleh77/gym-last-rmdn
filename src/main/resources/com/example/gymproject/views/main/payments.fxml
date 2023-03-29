@@ -18,7 +18,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="home-pane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.controllers.done.PaymentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" styleClass="home-pane" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.controllers.main.PaymentController">
     <effect>
         <DropShadow height="35.82" radius="17.41" spread="0.01" width="35.82">
             <color>

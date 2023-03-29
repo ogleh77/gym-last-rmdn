@@ -16,4 +16,5 @@ module com.example.gymproject {
 
     opens com.example.gymproject.controllers.done to javafx.fxml;
     opens com.example.gymproject.controllers.main to javafx.fxml;
+    opens com.example.gymproject.controllers.info to javafx.fxml;
 }

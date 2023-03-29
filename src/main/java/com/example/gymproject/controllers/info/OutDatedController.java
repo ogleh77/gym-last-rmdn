@@ -1,12 +1,10 @@
-package com.example.gymproject.controllers.done;
+package com.example.gymproject.controllers.info;
 
-import com.example.gymproject.controllers.done.CardController;
 import com.example.gymproject.dto.CustomerService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CommonClass;
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -17,10 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.Pagination;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -31,6 +26,8 @@ import java.util.ResourceBundle;
 
 public class OutDatedController extends CommonClass implements Initializable {
     @FXML
+    public ComboBox<String> shift;
+    @FXML
     private JFXRadioButton female;
     @FXML
     private DatePicker fromDate;
@@ -40,8 +37,6 @@ public class OutDatedController extends CommonClass implements Initializable {
     @FXML
     private Pagination pagination;
 
-    @FXML
-    private JFXComboBox<String> shift;
 
     @FXML
     private DatePicker toDate;
@@ -131,7 +126,7 @@ public class OutDatedController extends CommonClass implements Initializable {
                 }
 
                 loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/com/example/gymdesktop2023/validviews/customer-card.fxml"));
+                loader.setLocation(getClass().getResource("/com/example/gymproject/views/info/customer-card.fxml"));
                 anchorPane = loader.load();
                 GridPane.setMargin(anchorPane, new Insets(10));
                 CardController controller = loader.getController();

@@ -1,4 +1,4 @@
-package com.example.gymproject.controllers.done;
+package com.example.gymproject.controllers.service;
 
 import animatefx.animation.FadeOut;
 import com.example.gymproject.dto.BoxService;
@@ -58,7 +58,7 @@ public class GymController extends CommonClass implements Initializable {
 
     public GymController() throws SQLException {
         currentGym = GymService.getGym();
-        nextId = (BoxService.fetchBoxes().get(BoxService.fetchBoxes().size() - 1).getBoxId());
+        nextId = BoxService.nextBoxID();
     }
 
     @Override
@@ -87,31 +87,36 @@ public class GymController extends CommonClass implements Initializable {
 
     @FXML
     void createBoxHandler() throws SQLException {
-        nextId++;
-        Box box = new Box(nextId, addBox.getText(), true);
-        System.out.println(box.getBoxId());
-        try {
-            BoxService.insertBox(box);
-            listView.getItems().add(box);
-            BoxService.fetchBoxes().add(box);
-            informationAlert("Waxaad diwaan gelisay khanad cusub fadlan ka check garee box view-ga");
+        if (!addBox.getText().isBlank() && !addBox.getText().isEmpty()) {
+            Box box = new Box(nextId, addBox.getText(), true);
+            System.out.println(box.getBoxId());
+            try {
+                BoxService.insertBox(box);
+                listView.getItems().add(box);
+                BoxService.fetchBoxes().add(box);
+                informationAlert("Waxaad diwaan gelisay khanad cusub fadlan ka check garee box view-ga");
 
-        } catch (CustomException e) {
-            errorMessage(e.getMessage());
+            } catch (CustomException e) {
+                errorMessage(e.getMessage());
+            }
+            nextId++;
         }
+
         // TODO: 25/03/2023 Insha Allah  box ka hel next ID giisa si aad u samayso next Box
     }
 
     @FXML
     void deleteBoxHandler() {
         if (listView.getSelectionModel().getSelectedItem() != null) {
-            try {
-                BoxService.deleteBox(listView.getSelectionModel().getSelectedItem());
-                listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
-                informationAlert("Waxaad masaxdey khanad");
-            } catch (SQLException e) {
-                errorMessage(e.getMessage());
-            }
+            Box box = listView.getSelectionModel().getSelectedItem();
+            System.out.println("Box " + box.getBoxName() + " " + box.getBoxId());
+//            try {
+//                BoxService.deleteBox(listView.getSelectionModel().getSelectedItem());
+//                listView.getItems().remove(listView.getSelectionModel().getSelectedItem());
+//                informationAlert("Waxaad masaxdey khanad");
+//            } catch (SQLException e) {
+//                errorMessage(e.getMessage());
+//            }
 
         }
     }

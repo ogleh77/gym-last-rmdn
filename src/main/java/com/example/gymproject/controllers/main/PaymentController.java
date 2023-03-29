@@ -1,4 +1,4 @@
-package com.example.gymproject.controllers.done;
+package com.example.gymproject.controllers.main;
 
 import animatefx.animation.FadeIn;
 import com.example.gymproject.dto.GymService;

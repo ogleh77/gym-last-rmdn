@@ -4,6 +4,7 @@ import animatefx.animation.FadeIn;
 import animatefx.animation.SlideInLeft;
 import animatefx.animation.SlideOutLeft;
 import com.example.gymproject.controllers.done.UpdateUserController;
+import com.example.gymproject.controllers.info.OutDatedController;
 import com.example.gymproject.controllers.main.HomeController;
 import com.example.gymproject.controllers.main.RegistrationController;
 import com.example.gymproject.controllers.service.WarningController;
@@ -98,6 +99,14 @@ public class DashboardController extends CommonClass implements Initializable {
         controller.setActiveUser(activeUser);
         controller.setBorderPane(borderPane);
         controller.setCurrentGym(currentGym);
+    }
+
+    @FXML
+    void outdatedHandler() throws IOException {
+        FXMLLoader loader = openWindow("/com/example/gymproject/views/info/outdated.fxml", borderPane,
+                sidePane, null, warningStack);
+        OutDatedController controller = loader.getController();
+        controller.setActiveUser(activeUser);
     }
 
     @FXML

@@ -17,7 +17,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="home-pane" stylesheets="@../../style/css/long-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.controllers.info.OutDatedController">
     <HBox alignment="CENTER" layoutY="12.0" prefHeight="38.0" prefWidth="1150.0" spacing="800.0" AnchorPane.bottomAnchor="700.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
-        <Label fx:id="headerInfo" maxWidth="-Infinity" prefHeight="29.0" prefWidth="250.0" styleClass="top-label" text="OUTDATED MEMBERS">
+        <Label maxWidth="-Infinity" prefHeight="29.0" prefWidth="250.0" styleClass="top-label" text="OUTDATED MEMBERS">
             <HBox.margin>
                 <Insets left="10.0" />
             </HBox.margin>
@@ -69,7 +69,7 @@
                 <Color red="0.19607843458652496" green="0.5490196347236633" blue="0.658823549747467" />
             </unSelectedColor>
         </JFXRadioButton>
-      <ComboBox layoutX="19.0" layoutY="36.0" prefHeight="29.0" prefWidth="183.0" stylesheets="@../../style/css/combo-style.css" />
+      <ComboBox fx:id="shift" layoutX="19.0" layoutY="36.0" prefHeight="29.0" prefWidth="183.0" stylesheets="@../../style/css/combo-style.css" />
     </AnchorPane>
     <AnchorPane layoutX="522.0" layoutY="72.0" prefHeight="72.0" prefWidth="629.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-position: 10;">
         <effect>

@@ -1,7 +1,7 @@
 package com.example.gymproject.controllers.service;
 
 
-import com.example.gymproject.controllers.done.CardController;
+import com.example.gymproject.controllers.info.CardController;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.helpers.CommonClass;
 import javafx.application.Platform;

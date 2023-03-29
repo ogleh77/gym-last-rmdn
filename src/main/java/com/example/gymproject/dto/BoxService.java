@@ -11,7 +11,6 @@ public class BoxService {
     private static ObservableList<Box> boxes;
     private static final BoxModel boxModel = new BoxModel();
 
-
     public static void insertBox(Box box) throws SQLException {
         try {
             boxModel.insert(box);
@@ -24,8 +23,8 @@ public class BoxService {
     public static void updateBox(Box box) throws SQLException {
         boxModel.update(box);
         box.setReady(!box.isReady());
-        //  int index = findBoxIndex(fetchBoxes(), box.getBoxId());
-        ///  fetchBoxes().set(index, box);
+//        int index = findBoxIndex(fetchBoxes(), box.getBoxId());
+//        fetchBoxes().set(index, box);
     }
 
     public static void deleteBox(Box box) throws SQLException {
@@ -46,6 +45,13 @@ public class BoxService {
         return boxes;
     }
 
+    public static int nextBoxID() throws CustomException {
+        try {
+            return (1 + boxModel.predictNextId());
+        } catch (SQLException e) {
+            throw new CustomException("Khalad aya ka dhacay sahaminta ID ga xiga " + e.getMessage());
+        }
+    }
 
     public static int findBoxIndex(ObservableList<Box> boxes, int box_id) {
         int index = 0;

@@ -1,4 +1,4 @@
-package com.example.gymproject.controllers.done;
+package com.example.gymproject.controllers.info;
 
 
 import com.example.gymproject.entity.DailyReport;
