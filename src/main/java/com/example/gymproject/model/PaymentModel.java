@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 public class PaymentModel {
     private static final Connection connection = DbConnection.getConnection();
@@ -36,6 +37,7 @@ public class PaymentModel {
             ps.setString(7, customerPhone);
             ps.setString(8, payment.getMonth());
             ps.executeUpdate();
+            makeReport(payment, customerGender);
             connection.commit();
 
         } catch (SQLException e) {
@@ -126,7 +128,23 @@ public class PaymentModel {
         return payments;
 
     }
-    //__________------------Helpers____________------
+    //__________------------Helpers____________-----------
+
+    private static void makeReport(Payments payment, String customerGender) throws SQLException {
+        Statement st = connection.createStatement();
+        if (customerGender.equals("Male") && payment.getBox() != null) {
+            DailyReportModel.dailyReportMaleWithBox(st);
+        } else if (customerGender.equals("Female") && payment.getBox() != null) {
+            DailyReportModel.dailyReportFemaleWithBox(st);
+        } else if (payment.getBox() == null && customerGender.equals("Male")) {
+            DailyReportModel.dailyReportMaleWithOutBox(st);
+        } else if (payment.getBox() == null && customerGender.equals("Female")) {
+            DailyReportModel.dailyReportFemaleWithOutBox(st);
+        }
+        int arr[] = st.executeBatch();
+        System.out.println(Arrays.toString(arr));
+        st.close();
+    }
     private int daysRemain(int paymentID) throws SQLException {
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * FROM pending WHERE payment_fk=" + paymentID);
