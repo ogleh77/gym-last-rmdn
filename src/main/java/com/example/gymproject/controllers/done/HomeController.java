@@ -1,6 +1,8 @@
-package com.example.gymproject.controllers;
+package com.example.gymproject.controllers.done;
 
+import com.example.gymproject.controllers.done.CustomerInfoController;
 import com.example.gymproject.controllers.done.PaymentController;
+import com.example.gymproject.controllers.done.RegistrationController;
 import com.example.gymproject.dto.CustomerService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Users;
@@ -67,12 +69,13 @@ public class HomeController extends CommonClass implements Initializable {
             initTable();
             searchFilter();
         });
+        // TODO: 29/03/2023 madama aanu name ku update garobayn kala saar datada
     }
 
     private void initTable() {
         System.out.println("called init method in home");
         customerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
-        fullName.setCellValueFactory(customers -> new SimpleStringProperty(customers.getValue().getFirstName() + "   " + customers.getValue().getMiddleName() + "   " + customers.getValue().getLastName()));
+        fullName.setCellValueFactory(customers -> new SimpleStringProperty(customers.getValue().firstNameProperty().get() + "   " + customers.getValue().getMiddleName() + "   " + customers.getValue().getLastName()));
         phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         gander.setCellValueFactory(new PropertyValueFactory<>("gander"));
         shift.setCellValueFactory(new PropertyValueFactory<>("shift"));
@@ -91,21 +94,23 @@ public class HomeController extends CommonClass implements Initializable {
 
     @FXML
     void paymentHandler() throws IOException {
-
         if (tableView.getSelectionModel().getSelectedItem() != null) {
-            FXMLLoader loader = openNormalWindow("/com/example/gymdesktop2023/validviews/payments.fxml", borderPane);
+            // FXMLLoader loader = openNormalWindow("/com/example/gymproject/views/customer-info.fxml", borderPane);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/done/payments.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = new Stage(StageStyle.UNDECORATED);
             PaymentController controller = loader.getController();
             controller.setCustomer(tableView.getSelectionModel().getSelectedItem());
-            controller.setBorderPane(borderPane);
+            stage.setScene(scene);
+            stage.show();
         }
-
     }
 
     @FXML
     void fullInfoHandler() throws IOException {
         if (tableView.getSelectionModel().getSelectedItem() != null) {
             // FXMLLoader loader = openNormalWindow("/com/example/gymproject/views/customer-info.fxml", borderPane);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/customer-info.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/done/customer-info.fxml"));
             Scene scene = new Scene(loader.load());
             Stage stage = new Stage(StageStyle.UNDECORATED);
             CustomerInfoController controller = loader.getController();
@@ -129,12 +134,17 @@ public class HomeController extends CommonClass implements Initializable {
 
     @FXML
     void updateHandler() throws IOException {
-//        if (tableView.getSelectionModel().getSelectedItem() != null) {
-//            FXMLLoader loader = openNormalWindow("/com/example/gymdesktop2023/views/desing/registrations.fxml", borderPane);
-//            RegistrationController controller = loader.getController();
-//            controller.setCustomer(tableView.getSelectionModel().getSelectedItem());
-//            controller.setActiveUser(activeUser);
-//        }
+        if (tableView.getSelectionModel().getSelectedItem() != null) {
+            // FXMLLoader loader = openNormalWindow("/com/example/gymproject/views/customer-info.fxml", borderPane);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/done/registrations.fxml"));
+            Scene scene = new Scene(loader.load());
+            Stage stage = new Stage(StageStyle.UNDECORATED);
+            RegistrationController controller = loader.getController();
+            controller.setCustomer(tableView.getSelectionModel().getSelectedItem());
+            controller.setActiveUser(activeUser);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
 
     @Override

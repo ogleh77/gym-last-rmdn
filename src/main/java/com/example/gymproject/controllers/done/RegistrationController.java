@@ -184,8 +184,9 @@ public class RegistrationController extends CommonClass implements Initializable
                 protected Void call() {
                     try {
                         CustomerService.insertOrUpdateCustomer(savingCustomer(), isCustomerNew);
-//                        if (isCustomerNew) {
-                        customersList.add(0, savingCustomer());
+                        if (isCustomerNew) {
+                            customersList.add(0, savingCustomer());
+                        }
                         Thread.sleep(1000);
                         Platform.runLater(() -> informationAlert(isCustomerNew ? "Waxaad diwaan gelisay macmiil cusub" : "Waxaad update garaysay macmiil"));
 //                        } else {
