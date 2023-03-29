@@ -1,7 +1,6 @@
 package com.example.gymproject.controllers.main;
 
 import animatefx.animation.Shake;
-import com.example.gymproject.controllers.done.UpdateUserController;
 import com.example.gymproject.dto.CustomerService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Gym;
@@ -79,7 +78,7 @@ public class RegistrationController extends CommonClass implements Initializable
     private boolean isCustomerNew = true;
     private ObservableList<Customers> customersList;
 
-    private final int newCustomerID;
+    private int newCustomerID;
 
     private boolean done = false;
     private final ButtonType payment;
@@ -205,6 +204,7 @@ public class RegistrationController extends CommonClass implements Initializable
                         CustomerService.insertOrUpdateCustomer(savingCustomer(), isCustomerNew);
                         if (isCustomerNew) {
                             customersList.add(0, savingCustomer());
+                          //  newCustomerID++;
                         }
                         Thread.sleep(1000);
                         // Platform.runLater(() -> informationAlert(isCustomerNew ? "Waxaad diwaan gelisay macmiil cusub" : "Waxaad update garaysay macmiil"));

@@ -153,7 +153,7 @@ public abstract class CommonClass {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setContentText(message);
         alert.setTitle("Hablyo!");
-        alert.show();
+        alert.showAndWait();
         return alert;
     }
     public Alert infoAlert(String message) {

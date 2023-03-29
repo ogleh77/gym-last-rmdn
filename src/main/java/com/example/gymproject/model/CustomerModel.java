@@ -19,25 +19,29 @@ public class CustomerModel {
     }
 
     public void update(Customers customer) throws SQLException {
-        String updateQuery = "UPDATE customers SET first_name=?,middle_name=?,last_name=?,phone=?,gander=?,shift=?, " +
-                "address=?,image=?,weight=? WHERE customer_id=" + customer.getCustomerId();
+        String updateQuery = "UPDATE customers SET first_name=?,middle_name=?,last_name=?,phone=?,gander=?,shift=?, " + "address=?,image=?,weight=? WHERE customer_id=" + customer.getCustomerId();
         insertOrUpdateStatement(customer, updateQuery, false);
     }
 
     public void delete(Customers customer) throws SQLException {
-        String deleteCustomerQuery = "DELETE FROM customers WHERE phone=" + customer.getPhone();
-        String deletePaymentsQuery = "DELETE FROM payments WHERE customer_phone_fk=" + customer.getPhone();
+        connection.setAutoCommit(false);
 
-        Statement statement = connection.createStatement();
+        try {
+            String deleteCustomerQuery = "DELETE FROM customers WHERE phone=" + customer.getPhone();
+            String deletePaymentsQuery = "DELETE FROM payments WHERE customer_phone_fk=" + customer.getPhone();
 
-        statement.addBatch(deleteCustomerQuery);
-        statement.addBatch(deletePaymentsQuery);
+            Statement statement = connection.createStatement();
 
-        statement.executeBatch();
+            statement.addBatch(deleteCustomerQuery);
+            if (customer.getPayments() != null)
+                statement.addBatch(deletePaymentsQuery);
 
+            statement.executeBatch();
+            connection.commit();
+        } catch (SQLException e) {
+            connection.rollback();
+        }
         System.out.println("Customer and it's payments were deleted");
-
-
     }
 
     public ObservableList<Customers> fetchOfflineCustomers(Users activeUser) throws SQLException {
@@ -117,11 +121,7 @@ public class CustomerModel {
             if (payments == null || payments.isEmpty()) {
                 continue;
             }
-            Customers customer = new Customers(rs.getInt("customer_id"), rs.getString("first_name")
-                    , rs.getString("last_name"), rs.getString("middle_name"),
-                    rs.getString("phone"), rs.getString("gander"), rs.getString("shift")
-                    , rs.getString("address"), rs.getString("image"), rs.getDouble("weight"),
-                    rs.getString("who_added"));
+            Customers customer = new Customers(rs.getInt("customer_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("middle_name"), rs.getString("phone"), rs.getString("gander"), rs.getString("shift"), rs.getString("address"), rs.getString("image"), rs.getDouble("weight"), rs.getString("who_added"));
 
             customer.setPayments(payments);
             customers.add(customer);
@@ -146,11 +146,7 @@ public class CustomerModel {
 
     //---------------––Helpers---------------------
     private void getCustomers(ObservableList<Customers> customers, ResultSet rs, ObservableList<Payments> payment) throws SQLException {
-        Customers customer = new Customers(rs.getInt("customer_id"), rs.getString("first_name")
-                , rs.getString("last_name"), rs.getString("middle_name"),
-                rs.getString("phone"), rs.getString("gander"), rs.getString("shift")
-                , rs.getString("address"), rs.getString("image"), rs.getDouble("weight"),
-                rs.getString("who_added"));
+        Customers customer = new Customers(rs.getInt("customer_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("middle_name"), rs.getString("phone"), rs.getString("gander"), rs.getString("shift"), rs.getString("address"), rs.getString("image"), rs.getDouble("weight"), rs.getString("who_added"));
 
         if (payment != null) {
             customer.setPayments(payment);

@@ -43,21 +43,26 @@ public class CustomerService {
 
     public static void deleteCustomer(Customers customer) throws SQLException {
         try {
-            if (customer==null){
+            if (customer == null) {
                 throw new CustomException("Fadlan ka dooro table ka macmiilka aad donayso inad masaxdo");
-            }
-            ObservableList<Payments> payments = PaymentService.fetchAllCustomersPayments(customer.getPhone());
+            } else {
 
-            String pendPaymentMessage = "Macmiilkan waxa uu xidhay payment sasoo ay tahay ma delete garayn kartid" +
-                    "Marka hore dib u fur paymentkisa marka wakhtigu u dhamadana wad masaxi kartaa.";
-            String onlinePaymentMessage = "Macmiilkan waxa uu u socda payment sasoo ay tahay ma delete garayn kartid" +
-                    "ilaa wakhtigiisa uu dhamaysanyo.";
+                ObservableList<Payments> payments = PaymentService.fetchAllCustomersPayments(customer.getPhone());
 
-            for (Payments payment : payments) {
-                if (payment.isOnline() || payment.isPending()) {
-                    throw new CustomException(payment.isOnline() ? onlinePaymentMessage : pendPaymentMessage);
+                String pendPaymentMessage = "Macmiilkan waxa uu xidhay payment sasoo ay tahay ma delete garayn kartid" +
+                        "Marka hore dib u fur paymentkisa marka wakhtigu u dhamadana wad masaxi kartaa insha Allah.";
+                String onlinePaymentMessage = "Macmiilkan waxa uu u socda payment sasoo ay tahay ma delete garayn kartid" +
+                        " ilaa wakhtigiisa uu dhamaysanyo insha Allah.";
+                if (customer.getPayments() != null) {
+                    for (Payments payment : payments) {
+                        if (payment.isOnline() || payment.isPending()) {
+                            throw new CustomException(payment.isOnline() ? onlinePaymentMessage : pendPaymentMessage);
+                        }
+                        customerModel.delete(customer);
+                    }
                 }
                 customerModel.delete(customer);
+
             }
         } catch (SQLException e) {
             throw new CustomException(e.getMessage());

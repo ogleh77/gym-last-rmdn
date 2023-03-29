@@ -60,6 +60,8 @@ public class HomeController extends CommonClass implements Initializable {
     private FilteredList<Customers> filteredList;
     private SortedList<Customers> sortedList;
 
+    private boolean deleted = false;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         System.out.println();
@@ -121,7 +123,9 @@ public class HomeController extends CommonClass implements Initializable {
     @FXML
     void deleteHandler() {
         try {
-            CustomerService.deleteCustomer(customer);
+            Customers selectedItem = tableView.getSelectionModel().getSelectedItem();
+            CustomerService.deleteCustomer(selectedItem);
+            informationAlert("Deleted successfully");
         } catch (SQLException e) {
             infoAlert(e.getMessage());
         }
