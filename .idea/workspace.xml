@@ -5,33 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53d89cb0-db6f-4418-906f-24ac9edf989a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/info/customer-card.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/info/outdated.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/service/gym.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/com/example/gymproject/dto/BoxServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service/BackupController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto/BackupService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/BackupModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons/icons8-data-backup-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons/icons8-reset-48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/service/backup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54c41628-eec8-47fc-aa3a-cd8b52cb159f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54c41628-eec8-47fc-aa3a-cd8b52cb159f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/info/CardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/DailyReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/info/DailyReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/GymController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service/GymController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/OutDatedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/info/OutDatedController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/main/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/main/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/main/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/main/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/main/RegistrationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service/WarningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service/WarningController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto/BoxService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto/BoxService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/BoxModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/BoxModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/dashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/customer-card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/customer-card.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/dailyReports.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/dailyReports.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/gym.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/gym.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/outdated.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/outdated.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/payments.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/payments.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/main/payments.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/main/payments.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/service/dailyReports.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/service/dailyReports.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +29,8 @@
       <list>
         <option value="FxmlFile" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -72,7 +58,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "extract.method.default.visibility": "private",
-    "last_opened_file_path": "/Users/mrd/Desktop/Desktop/gym-project/src/main/resources/com/example/gymproject/views/service",
+    "last_opened_file_path": "/Users/mrd/Desktop/Desktop/gym-project/src/main/resources/com/example/gymproject/style/icons",
     "list.type.of.created.stylesheet": "CSS",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
@@ -88,11 +74,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/service" />
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/info" />
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/main" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service" />
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/service" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymproject/model" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/main" />
@@ -223,7 +209,7 @@
       <workItem from="1680023066802" duration="805000" />
       <workItem from="1680024655570" duration="562000" />
       <workItem from="1680025245285" duration="3307000" />
-      <workItem from="1680068698474" duration="2992000" />
+      <workItem from="1680068698474" duration="8644000" />
     </task>
     <servers />
   </component>

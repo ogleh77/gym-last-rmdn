@@ -14,7 +14,7 @@ import java.sql.SQLException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymproject/views/service/gym.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymproject/views/service/backup.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 //
 //        SplashScreenController controller = fxmlLoader.getController();
