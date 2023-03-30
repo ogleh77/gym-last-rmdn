@@ -1,4 +1,4 @@
-package com.example.gymproject.validatecontrolles;
+package com.example.gymproject.validatecontrolles.info;
 
 import com.example.gymproject.dto.GymService;
 import com.example.gymproject.dto.PaymentService;

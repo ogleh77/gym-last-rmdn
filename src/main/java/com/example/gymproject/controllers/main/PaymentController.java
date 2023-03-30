@@ -123,7 +123,6 @@ public class PaymentController extends CommonClass implements Initializable {
             createBtn.setGraphic(null);
             if (done) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, customer.getFirstName() + " Waxad u samaysay payment cusub", ok);
-
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.isPresent() && result.get() == ok) {
                     System.out.println("Backing to home");
@@ -224,7 +223,6 @@ public class PaymentController extends CommonClass implements Initializable {
     };
 
     private void initFields() {
-
         expDate.setValue(LocalDate.now().plusDays(30));
         expDate.setStyle("-fx-opacity: 1");
         paidBy.setItems(getPaidBy());

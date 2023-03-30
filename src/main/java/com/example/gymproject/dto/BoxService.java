@@ -28,11 +28,16 @@ public class BoxService {
     }
 
     public static void deleteBox(Box box) throws SQLException {
-        if (!box.isReady()) {
-            throw new CustomException("Khanadan macmiil ayaa isticmalaya hada \n" +
-                    "Saaso tahay ma masaxi kartid");
+        try {
+            if (!box.isReady()) {
+                throw new CustomException("Khanadan macmiil ayaa isticmalaya hada \n" +
+                        "Saaso tahay ma masaxi kartid");
+            }
+            boxModel.deleteBox(box);
+
+        } catch (SQLException e) {
+           throw  new CustomException(e.getMessage());
         }
-        boxModel.deleteBox(box);
     }
 
     public static ObservableList<Box> fetchBoxes() throws SQLException {

@@ -1,6 +1,8 @@
-package com.example.gymproject.controllers.main;
+package com.example.gymproject.validatecontrolles.main;
 
 import com.example.gymproject.controllers.done.CustomerInfoController;
+import com.example.gymproject.controllers.main.PaymentController;
+import com.example.gymproject.controllers.main.RegistrationController;
 import com.example.gymproject.dto.CustomerService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Users;
@@ -55,9 +57,6 @@ public class HomeController extends CommonClass implements Initializable {
 
     private ObservableList<Customers> customersList;
     private FilteredList<Customers> filteredList;
-    private SortedList<Customers> sortedList;
-
-    private boolean deleted = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -66,11 +65,9 @@ public class HomeController extends CommonClass implements Initializable {
             initTable();
             searchFilter();
         });
-        // TODO: 29/03/2023 madama aanu name ku update garobayn kala saar datada
-    }
+     }
 
     private void initTable() {
-        System.out.println("called init method in home");
         customerId.setCellValueFactory(new PropertyValueFactory<>("customerId"));
         fullName.setCellValueFactory(customers -> new SimpleStringProperty(customers.getValue().firstNameProperty().get() + "   " + customers.getValue().getMiddleName() + "   " + customers.getValue().getLastName()));
         phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
@@ -149,7 +146,7 @@ public class HomeController extends CommonClass implements Initializable {
 
     private void searchFilter() {
         filteredList = new FilteredList<>(customersList, b -> true);
-        sortedList = new SortedList<>(filteredList);
+        SortedList<Customers> sortedList = new SortedList<>(filteredList);
         sortedList.comparatorProperty().bind(tableView.comparatorProperty());
         tableView.setItems(sortedList);
         search.textProperty().addListener((observable, oldValue, newValue) -> filteredList.setPredicate(customer -> {

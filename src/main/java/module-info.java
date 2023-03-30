@@ -10,7 +10,7 @@ module com.example.gymproject {
     opens com.example.gymproject to javafx.fxml;
     opens com.example.gymproject.controllers to javafx.fxml;
     opens com.example.gymproject.controllers.service to javafx.fxml;
-    opens com.example.gymproject.validatecontrolles to javafx.fxml;
+    opens com.example.gymproject.validatecontrolles.main to javafx.fxml;
 
     exports com.example.gymproject;
     exports com.example.gymproject.entity;
@@ -18,4 +18,6 @@ module com.example.gymproject {
     opens com.example.gymproject.controllers.done to javafx.fxml;
     opens com.example.gymproject.controllers.main to javafx.fxml;
     opens com.example.gymproject.controllers.info to javafx.fxml;
+    opens com.example.gymproject.validatecontrolles.info to javafx.fxml;
+    // opens com.example.gymproject.validatecontrolles.main to javafx.fxml;
 }

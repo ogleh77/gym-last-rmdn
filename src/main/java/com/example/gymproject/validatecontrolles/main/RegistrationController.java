@@ -1,4 +1,4 @@
-package com.example.gymproject.validatecontrolles;
+package com.example.gymproject.validatecontrolles.main;
 
 import animatefx.animation.Shake;
 import com.example.gymproject.controllers.main.PaymentController;
@@ -80,7 +80,7 @@ public class RegistrationController extends CommonClass implements Initializable
     private boolean isCustomerNew = true;
     private ObservableList<Customers> customersList;
 
-    private int newCustomerID;
+    private final int newCustomerID;
 
     private boolean done = false;
     private final ButtonType payment;
@@ -104,10 +104,10 @@ public class RegistrationController extends CommonClass implements Initializable
         weightValidation();
         service.setOnSucceeded(e -> {
             registerBtn.setGraphic(null);
-            registerBtn.setText(isCustomerNew ? "Saved" : "Updated");
-            System.out.println("Done");
+            registerBtn.setText(isCustomerNew ? "Payment" : "Updated");
 
             if (done && isCustomerNew) {
+
                 paymentMethod();
             }
         });
@@ -211,14 +211,11 @@ public class RegistrationController extends CommonClass implements Initializable
                         CustomerService.insertOrUpdateCustomer(savingCustomer(), isCustomerNew);
                         if (isCustomerNew) {
                             customersList.add(0, savingCustomer());
-                            //  newCustomerID++;
+                            done = true;
                         }
                         Thread.sleep(1000);
-                        // Platform.runLater(() -> informationAlert(isCustomerNew ? "Waxaad diwaan gelisay macmiil cusub" : "Waxaad update garaysay macmiil"));
-                        done = true;
-//                        } else {
-                        // customersList.set(CustomerService.binarySearch(customersList, 0, customersList.size() - 1, customer.getCustomerId()), customer);
-                        // }
+                        Platform.runLater(() -> informationAlert("Updated successfully"));
+
                     } catch (Exception e) {
                         Platform.runLater(() -> errorMessage(e.getMessage()));
                         e.printStackTrace();
@@ -288,7 +285,7 @@ public class RegistrationController extends CommonClass implements Initializable
     }
 
     private void paymentMethod() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, customer.getFirstName() + "Waxaad diwaan gelisay macmiil cusub " +
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Waxaad diwaan gelisay macmiil cusub " +
                 "Fadlan u gudub qaybta lacag bixinta macniilka", payment);
 
         Optional<ButtonType> result = alert.showAndWait();
@@ -311,6 +308,7 @@ public class RegistrationController extends CommonClass implements Initializable
         FXMLLoader loader = openNormalWindow("/com/example/gymproject/views/main/payments.fxml", borderPane);
         PaymentController controller = loader.getController();
         controller.setCustomer(customer);
+        controller.setActiveUser(activeUser);
     }
 
     private void clear() {

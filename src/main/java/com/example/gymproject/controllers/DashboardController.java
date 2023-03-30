@@ -7,7 +7,7 @@ import com.example.gymproject.controllers.done.UpdateUserController;
 import com.example.gymproject.controllers.info.OutDatedController;
 import com.example.gymproject.controllers.main.HomeController;
 import com.example.gymproject.controllers.main.RegistrationController;
-import com.example.gymproject.controllers.service.WarningController;
+import com.example.gymproject.controllers.info.WarningController;
 import com.example.gymproject.dto.GymService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Gym;
@@ -112,7 +112,7 @@ public class DashboardController extends CommonClass implements Initializable {
     @FXML
     void reportHandler() throws IOException {
         System.out.println("clicked");
-        FXMLLoader loader = openWindow("/com/example/gymproject/views/service/dailyReports.fxml", borderPane,
+        FXMLLoader loader = openWindow("/com/example/gymproject/views/info/dailyReports.fxml", borderPane,
                 sidePane, null, warningStack);
 
     }
@@ -161,7 +161,7 @@ public class DashboardController extends CommonClass implements Initializable {
 
         if (!warningList.isEmpty() && event.getClickCount() == 1) {
             warningParent.setVisible(false);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/service/warning.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/info/warning.fxml"));
             Scene scene = new Scene(loader.load());
             WarningController controller = loader.getController();
             controller.setOutdatedCustomers(warningList);

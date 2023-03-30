@@ -1,4 +1,4 @@
-package com.example.gymproject.validatecontrolles;
+package com.example.gymproject.validatecontrolles.main;
 
 import animatefx.animation.FadeIn;
 import com.example.gymproject.controllers.main.HomeController;

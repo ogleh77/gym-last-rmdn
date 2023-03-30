@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="518.0" prefWidth="468.0" stylesheets="@../../style/css/small-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.controllers.service.WarningController">
+<AnchorPane fx:id="warningPane" prefHeight="518.0" prefWidth="468.0" stylesheets="@../../style/css/small-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.validatecontrolles.info.WarningController">
     <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="596.0" spacing="180.0" styleClass="top-pane">
         <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="342.0">
             <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
@@ -26,7 +26,7 @@
                 </HBox.margin>
             </Label>
         </HBox>
-        <HBox alignment="CENTER" prefHeight="45.0" prefWidth="49.0" styleClass="cancel-pane">
+        <HBox alignment="CENTER" onMouseClicked="#cancelHandler" prefHeight="45.0" prefWidth="49.0" styleClass="cancel-pane">
             <HBox.margin>
                 <Insets left="25.0" />
             </HBox.margin>
@@ -35,16 +35,16 @@
             </ImageView>
         </HBox>
     </HBox>
-    <ScrollPane hbarPolicy="NEVER" layoutY="85.0" prefHeight="456.0" prefWidth="596.0">
+    <ScrollPane hbarPolicy="NEVER" layoutY="85.0" prefHeight="456.0" prefWidth="596.0" style="-fx-background-color: white;">
         <VBox fx:id="vbox" alignment="CENTER" prefHeight="4.0" prefWidth="595.0" spacing="5.0">
             <padding>
                 <Insets top="10.0" />
             </padding>
         </VBox>
     </ScrollPane>
-    <Label layoutX="11.0" layoutY="54.0" styleClass="label-background" text="outdated today">
+    <Label layoutX="11.0" layoutY="54.0" text="Halkan waxad ka ogaan kartaa 3 casho ka hor inta macamiilka wakhtigu ka dhicin">
         <font>
-            <Font size="15.0" />
+            <Font name="Verdana Bold" size="12.0" />
         </font>
     </Label>
     <effect>

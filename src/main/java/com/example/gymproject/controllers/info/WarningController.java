@@ -1,4 +1,4 @@
-package com.example.gymproject.controllers.service;
+package com.example.gymproject.controllers.info;
 
 
 import com.example.gymproject.controllers.info.CardController;
