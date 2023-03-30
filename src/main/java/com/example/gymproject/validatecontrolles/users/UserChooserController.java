@@ -1,7 +1,6 @@
 package com.example.gymproject.validatecontrolles.users;
 
 import animatefx.animation.FadeOut;
-import com.example.gymproject.controllers.done.UpdateUserController;
 import com.example.gymproject.dto.UserService;
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CommonClass;
@@ -84,10 +83,10 @@ public class UserChooserController extends CommonClass implements Initializable 
     }
 
     @FXML
-    void deleteHandler() throws CustomException {
+    void deleteHandler() {
         try {
             if (listView.getSelectionModel().getSelectedItem() == null) {
-                throw new CustomException("Marka hore soo dooro userka aad rabto inaad delete-garyso.");
+                throw new CustomException("Marka hore soo dooro user-ka aad rabto inaad delete-garyso.");
             }
             confirmDelete(listView.getSelectionModel().getSelectedItem().getUsername());
         } catch (Exception e) {

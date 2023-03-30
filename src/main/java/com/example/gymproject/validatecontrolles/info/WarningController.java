@@ -65,9 +65,10 @@ public class WarningController extends CommonClass implements Initializable {
             }
         } else {
             Label label = new Label("Ma jirto macamiil wakhtigoodu dhamaad ku dhowyahay.");
-            label.setStyle("-fx-font-size: 18");
+            label.setStyle("-fx-font-size: 16;-fx-font-family: Verdana");
             vbox.setAlignment(Pos.CENTER);
             vbox.getChildren().add(label);
+
         }
 
     }

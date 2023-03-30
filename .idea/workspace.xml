@@ -5,15 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53d89cb0-db6f-4418-906f-24ac9edf989a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/users/UpdateUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/com/example/gymproject/dto/UserServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/UserModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/info/WarningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/info/WarningController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/users/UserChooserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/users/UserChooserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/users/UserCreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/users/UserCreateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/users/user-update.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/users/user-update.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/service/gym.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/service/gym.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,10 +92,10 @@
       <recent name="com.example.gymproject.model" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.gymproject.validatecontrolles" />
       <recent name="com.example.gymproject.validatecontrolles.users" />
       <recent name="com.example.gymproject.validatecontrolles.info" />
       <recent name="com.example.gymproject.validatecontrolles.service" />
-      <recent name="com.example.gymproject.validatecontrolles" />
     </key>
   </component>
   <component name="RunManager" selected="Application.HelloApplication">
@@ -216,7 +217,7 @@
       <workItem from="1680084676607" duration="5301000" />
       <workItem from="1680153748813" duration="8941000" />
       <workItem from="1680185957312" duration="3110000" />
-      <workItem from="1680195690773" duration="4303000" />
+      <workItem from="1680195690773" duration="6208000" />
     </task>
     <servers />
   </component>

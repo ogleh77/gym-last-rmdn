@@ -9,9 +9,11 @@ module com.example.gymproject {
 
     opens com.example.gymproject to javafx.fxml;
     opens com.example.gymproject.controllers to javafx.fxml;
+    opens com.example.gymproject.validatecontrolles to javafx.fxml;
     opens com.example.gymproject.controllers.service to javafx.fxml;
     opens com.example.gymproject.validatecontrolles.main to javafx.fxml;
     opens com.example.gymproject.validatecontrolles.users to javafx.fxml;
+    opens com.example.gymproject.validatecontrolles.service to javafx.fxml;
 
 
     exports com.example.gymproject;

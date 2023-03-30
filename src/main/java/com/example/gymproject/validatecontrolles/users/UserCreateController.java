@@ -17,6 +17,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class UserCreateController extends CommonClass implements Initializable {
@@ -61,6 +62,7 @@ public class UserCreateController extends CommonClass implements Initializable {
 
     private final ToggleGroup roleToggle = new ToggleGroup();
     private Stage stage;
+    private boolean done = false;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -74,6 +76,17 @@ public class UserCreateController extends CommonClass implements Initializable {
         service.setOnSucceeded(e -> {
             createBtn.setGraphic(null);
             createBtn.setText("Created");
+
+            if (done) {
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "User Created successfully", ButtonType.OK);
+
+                Optional<ButtonType> result = alert.showAndWait();
+
+                if (result.get().getButtonData().isDefaultButton()) {
+                    stage.close();
+                }
+            }
         });
     }
 
@@ -82,7 +95,7 @@ public class UserCreateController extends CommonClass implements Initializable {
         String image = selectedFile != null ? selectedFile.getAbsolutePath() : null;
         String gander = male.isSelected() ? "Male" : "Female";
         String role = superAdmin.isSelected() ? "super_admin" : "admin";
-      // TODO: 30/03/2023 Delete currently inserted user
+        // TODO: 30/03/2023 Delete currently inserted user
         return new Users(nextId, firstname.getText().trim(), lastname.getText().trim(), phone.getText().trim(), gander, shift.getValue().trim(), username.getText().trim(), oldPassword.getText().trim(), image, role);
     }
 
@@ -145,7 +158,7 @@ public class UserCreateController extends CommonClass implements Initializable {
                             try {
                                 UserService.insertUser(users());
                                 UserService.users().add(users());
-                                Platform.runLater(() -> informationAlert("Wxad samaysay user cusub"));
+                                done = true;
                             } catch (SQLException e) {
                                 Platform.runLater(() -> errorMessage(e.getMessage()));
                             }
