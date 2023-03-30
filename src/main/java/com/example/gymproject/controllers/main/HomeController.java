@@ -13,15 +13,12 @@ import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -99,29 +96,21 @@ public class HomeController extends CommonClass implements Initializable {
     @FXML
     void paymentHandler() throws IOException {
         if (tableView.getSelectionModel().getSelectedItem() != null) {
-            // FXMLLoader loader = openNormalWindow("/com/example/gymproject/views/customer-info.fxml", borderPane);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/done/payments.fxml"));
-            Scene scene = new Scene(loader.load());
-            Stage stage = new Stage(StageStyle.UNDECORATED);
+            FXMLLoader loader = openNormalWindow("/com/example/gymproject/views/main/payments.fxml", borderPane);
             PaymentController controller = loader.getController();
             controller.setCustomer(tableView.getSelectionModel().getSelectedItem());
-            stage.setScene(scene);
-            stage.show();
         }
+
     }
 
     @FXML
     void fullInfoHandler() throws IOException {
         if (tableView.getSelectionModel().getSelectedItem() != null) {
-            // FXMLLoader loader = openNormalWindow("/com/example/gymproject/views/customer-info.fxml", borderPane);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/done/customer-info.fxml"));
-            Scene scene = new Scene(loader.load());
-            Stage stage = new Stage(StageStyle.UNDECORATED);
+            FXMLLoader loader = openNormalWindow("/com/example/gymproject/views/done/customer-info.fxml", borderPane);
             CustomerInfoController controller = loader.getController();
             controller.setCustomer(tableView.getSelectionModel().getSelectedItem());
-            stage.setScene(scene);
-            stage.show();
         }
+
     }
 
     @FXML
@@ -138,15 +127,10 @@ public class HomeController extends CommonClass implements Initializable {
     @FXML
     void updateHandler() throws IOException {
         if (tableView.getSelectionModel().getSelectedItem() != null) {
-            // FXMLLoader loader = openNormalWindow("/com/example/gymproject/views/customer-info.fxml", borderPane);
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/main/registrations.fxml"));
-            Scene scene = new Scene(loader.load());
-            Stage stage = new Stage(StageStyle.UNDECORATED);
+            FXMLLoader loader = openNormalWindow("/com/example/gymproject/views/main/registrations.fxml", borderPane);
             RegistrationController controller = loader.getController();
             controller.setCustomer(tableView.getSelectionModel().getSelectedItem());
             controller.setActiveUser(activeUser);
-            stage.setScene(scene);
-            stage.show();
         }
     }
 
