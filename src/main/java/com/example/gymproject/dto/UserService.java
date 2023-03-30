@@ -64,4 +64,12 @@ public class UserService {
 
         return users;
     }
+
+    public static int predictNextId() throws SQLException {
+        try {
+            return (userModel.nextID() + 1);
+        } catch (SQLException e) {
+            throw new CustomException("Khalad predict nextId " + e.getMessage());
+        }
+    }
 }

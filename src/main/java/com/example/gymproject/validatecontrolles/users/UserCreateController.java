@@ -13,7 +13,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -75,19 +74,16 @@ public class UserCreateController extends CommonClass implements Initializable {
         service.setOnSucceeded(e -> {
             createBtn.setGraphic(null);
             createBtn.setText("Created");
-            System.out.println(users());
         });
     }
 
-    private Users users() {
+    private Users users() throws SQLException {
+        int nextId = UserService.predictNextId();
         String image = selectedFile != null ? selectedFile.getAbsolutePath() : null;
         String gander = male.isSelected() ? "Male" : "Female";
         String role = superAdmin.isSelected() ? "super_admin" : "admin";
-
-        return new Users(0, firstname.getText().trim(), lastname.getText().trim()
-                , phone.getText().trim(), gander, shift.getValue().trim(), username.getText().trim(),
-                oldPassword.getText().trim(), image, role);
-
+      // TODO: 30/03/2023 Delete currently inserted user
+        return new Users(nextId, firstname.getText().trim(), lastname.getText().trim(), phone.getText().trim(), gander, shift.getValue().trim(), username.getText().trim(), oldPassword.getText().trim(), image, role);
     }
 
     private void initFields() {
@@ -119,9 +115,8 @@ public class UserCreateController extends CommonClass implements Initializable {
     }
 
     @FXML
-    void createUserHandler() {
-        if (isValid(getMandatoryFields(), genderGroup) && (phone.getText().length() == 7
-                || !phoneValidation.isVisible())) {
+    void createUserHandler() throws SQLException {
+        if (isValid(getMandatoryFields(), genderGroup) && (phone.getText().length() == 7 || !phoneValidation.isVisible())) {
             System.out.println(users());
             if (!imageUploaded) {
                 checkImage(imageView, "Fadlan sawirka lama helin isku day mar kale");

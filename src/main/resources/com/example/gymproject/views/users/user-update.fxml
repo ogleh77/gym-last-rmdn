@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="545.0" prefWidth="483.0" stylesheets="@../../style/css/small-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.controllers.done.UpdateUserController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="545.0" prefWidth="483.0" stylesheets="@../../style/css/small-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.validatecontrolles.users.UpdateUserController">
     <effect>
         <DropShadow height="38.79" radius="23.3425" width="56.58" />
     </effect>

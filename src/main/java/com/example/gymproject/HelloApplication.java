@@ -4,6 +4,8 @@ import com.example.gymproject.dto.CustomerService;
 import com.example.gymproject.dto.UserService;
 import com.example.gymproject.validatecontrolles.info.WarningController;
 import com.example.gymproject.validatecontrolles.main.RegistrationController;
+import com.example.gymproject.validatecontrolles.users.UpdateUserController;
+import com.example.gymproject.validatecontrolles.users.UserCreateController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,8 +18,10 @@ import java.sql.SQLException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymproject/views/users/user-chooser.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymproject/views/users/user-creation.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        UserCreateController controller=fxmlLoader.getController();
+      //  controller.setUser(UserService.users().get(1));
         //WarningController controller=fxmlLoader.getController();
         //controller.se
 //        RegistrationController controller = fxmlLoader.getController();

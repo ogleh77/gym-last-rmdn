@@ -393,6 +393,18 @@
                     </ImageView>
                 </graphic>
             </MenuButton>
+         <JFXButton buttonType="RAISED" prefHeight="46.0" prefWidth="176.0" styleClass="side-btn" text="Log out" textFill="#e8dcdc">
+            <graphic>
+               <ImageView fitHeight="28.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../style/icons/icons8-user-30.png" />
+                  </image>
+               </ImageView>
+            </graphic>
+            <font>
+               <Font name="Arial" size="18.0" />
+            </font>
+         </JFXButton>
         </VBox>
     </left>
 </BorderPane>

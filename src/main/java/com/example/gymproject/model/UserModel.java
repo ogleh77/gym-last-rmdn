@@ -51,6 +51,15 @@ public class UserModel {
         return users;
     }
 
+    public int nextID() throws SQLException {
+        Statement statement = connection.createStatement();
+
+        ResultSet rs = statement.executeQuery("SELECT * FROM SQLITE_SEQUENCE WHERE name = 'users';");
+        if (rs.next()) {
+            return rs.getInt("seq");
+        }
+        return 0;
+    }
 
     //----------------Helper methods-----------------
 
