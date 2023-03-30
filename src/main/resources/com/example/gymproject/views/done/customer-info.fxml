@@ -13,7 +13,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="home-pane" stylesheets="@../../style/css/long-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.controllers.done.CustomerInfoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="home-pane" stylesheets="@../../style/css/long-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.validatecontrolles.CustomerInfoController">
     <effect>
         <DropShadow height="35.83" radius="17.415" width="35.83">
             <color>
@@ -74,8 +74,8 @@
             <TableColumn fx:id="discount" prefWidth="88.0" text="Discount" />
             <TableColumn fx:id="poxing" prefWidth="86.0" text="Poxing" />
             <TableColumn fx:id="vipBox" prefWidth="82.0" text="Vip Box" />
-            <TableColumn fx:id="running" prefWidth="75.0" text="runing" />
-            <TableColumn fx:id="pendingBtn" prefWidth="122.0" text="pending" />
+            <TableColumn fx:id="running" prefWidth="75.0" text="online" />
+            <TableColumn fx:id="pendingBtn" prefWidth="122.0" text="action" />
         </columns>
         <effect>
             <DropShadow height="35.82" radius="17.41" width="35.82">

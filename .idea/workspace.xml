@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53d89cb0-db6f-4418-906f-24ac9edf989a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/CustomerInfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/main/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/main/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Payments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Payments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/customer-info.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/customer-info.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +86,9 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.example.gymproject.dto" />
       <recent name="com.example.gymproject.model" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.gymproject.validatecontrolles" />
     </key>
   </component>
   <component name="RunManager" selected="Application.HelloApplication">
@@ -201,7 +208,7 @@
       <workItem from="1680025245285" duration="3307000" />
       <workItem from="1680068698474" duration="8779000" />
       <workItem from="1680084676607" duration="5301000" />
-      <workItem from="1680153748813" duration="2264000" />
+      <workItem from="1680153748813" duration="5293000" />
     </task>
     <servers />
   </component>
