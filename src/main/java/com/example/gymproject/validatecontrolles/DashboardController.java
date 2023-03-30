@@ -3,15 +3,15 @@ package com.example.gymproject.validatecontrolles;
 import animatefx.animation.FadeIn;
 import animatefx.animation.SlideInLeft;
 import animatefx.animation.SlideOutLeft;
-import com.example.gymproject.controllers.info.OutDatedController;
-import com.example.gymproject.controllers.main.HomeController;
-import com.example.gymproject.controllers.main.RegistrationController;
 import com.example.gymproject.dto.GymService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Gym;
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CommonClass;
+import com.example.gymproject.validatecontrolles.info.OutDatedController;
 import com.example.gymproject.validatecontrolles.info.WarningController;
+import com.example.gymproject.validatecontrolles.main.HomeController;
+import com.example.gymproject.validatecontrolles.main.RegistrationController;
 import com.example.gymproject.validatecontrolles.users.UpdateUserController;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
@@ -70,9 +70,7 @@ public class DashboardController extends CommonClass implements Initializable {
             SlideOutLeft slideOutLeft = new SlideOutLeft();
             slideOutLeft.setNode(sidePane);
             slideOutLeft.play();
-            slideOutLeft.setOnFinished(e -> {
-                borderPane.setLeft(null);
-            });
+            slideOutLeft.setOnFinished(e -> borderPane.setLeft(null));
         } else {
             new SlideInLeft(sidePane).play();
             borderPane.setLeft(sidePane);
@@ -88,7 +86,6 @@ public class DashboardController extends CommonClass implements Initializable {
         HomeController controller = loader.getController();
         controller.setActiveUser(activeUser);
         controller.setBorderPane(borderPane);
-
     }
 
     @FXML
@@ -112,7 +109,7 @@ public class DashboardController extends CommonClass implements Initializable {
     @FXML
     void reportHandler() throws IOException {
         System.out.println("clicked");
-        FXMLLoader loader = openWindow("/com/example/gymproject/views/info/dailyReports.fxml", borderPane,
+        openWindow("/com/example/gymproject/views/info/dailyReports.fxml", borderPane,
                 sidePane, null, warningStack);
 
     }

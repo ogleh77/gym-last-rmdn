@@ -152,20 +152,6 @@
             </HBox.margin>
         </Label>
     </HBox>
-    <HBox alignment="CENTER" layoutX="-1.0" layoutY="69.0" prefHeight="27.0" prefWidth="1050.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="637.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
-        <Label fx:id="gymTitle" alignment="CENTER" prefHeight="24.0" prefWidth="1038.0" text="TODHEER GYM CENTER TEL: 4439202/2019923" textFill="#328ca8">
-            <font>
-                <Font name="Tahoma Bold" size="15.0" />
-            </font>
-        </Label>
-        <effect>
-            <DropShadow height="35.83" radius="17.415" width="35.83">
-                <color>
-                    <Color red="0.24705882370471954" green="0.6117647290229797" blue="0.9098039269447327" />
-                </color>
-            </DropShadow>
-        </effect>
-    </HBox>
     <Label fx:id="weightValidation" layoutX="778.0" layoutY="261.0" prefHeight="20.0" prefWidth="321.0" stylesheets="@../../style/css/message.css" text="message" textFill="#bf1a1a" visible="false">
         <font>
             <Font name="Helvetica" size="16.0" />
