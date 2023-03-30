@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="userCreatePane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="541.0" prefWidth="483.0" stylesheets="@../../style/css/small-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.controllers.done.UserCreateController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="541.0" prefWidth="483.0" stylesheets="@../../style/css/small-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.validatecontrolles.users.UserCreateController">
     <effect>
         <DropShadow height="86.24" radius="41.8775" width="83.27" />
     </effect>
@@ -77,11 +77,11 @@
         <font>
             <Font name="Arial" size="15.0" />
         </font>
-      <graphic>
-          <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-              <Image url="@../../style/icons/icons8-save-30.png"/>
-          </ImageView>
-      </graphic>
+        <graphic>
+            <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../style/icons/icons8-save-30.png" />
+            </ImageView>
+        </graphic>
     </JFXButton>
     <TextField fx:id="username" layoutX="29.0" layoutY="311.0" prefHeight="36.0" prefWidth="194.0" promptText="e.g ogleh" />
     <Label layoutX="29.0" layoutY="288.0" text="username" textFill="#6f6c6c">
@@ -106,13 +106,11 @@
         <font>
             <Font name="Arial" size="15.0" />
         </font>
-      <graphic>
-         <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../../style/icons/icons8-available-updates-24.png" />
-            </image>
-         </ImageView>
-      </graphic>
+        <graphic>
+            <ImageView fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../style/icons/icons8-available-updates-24.png" />
+            </ImageView>
+        </graphic>
     </JFXButton>
     <JFXRadioButton fx:id="superAdmin" layoutX="271.0" layoutY="229.0" text="Super_admin" />
     <JFXRadioButton fx:id="admin" layoutX="390.0" layoutY="229.0" text="Admin" />

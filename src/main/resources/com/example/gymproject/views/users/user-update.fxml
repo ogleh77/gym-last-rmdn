@@ -33,16 +33,14 @@
                 </font>
             </Label>
         </HBox>
-        <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="61.0" spacing="10.0">
-            <HBox alignment="CENTER" prefHeight="36.0" prefWidth="58.0" styleClass="cancel-pane">
-                <HBox.margin>
-                    <Insets left="10.0" />
-                </HBox.margin>
-                <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-                    <Image url="@../../style/icons/icons8-close-30.png" />
-                </ImageView>
-            </HBox>
-        </HBox>
+         <HBox alignment="CENTER" onMouseClicked="#cancelHandler" prefHeight="36.0" prefWidth="58.0" styleClass="cancel-pane">
+             <HBox.margin>
+                 <Insets left="10.0" />
+             </HBox.margin>
+             <ImageView fitHeight="24.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                 <Image url="@../../style/icons/icons8-close-30.png" />
+             </ImageView>
+         </HBox>
     </HBox>
     <TextField fx:id="firstname" layoutX="25.0" layoutY="120.0" prefHeight="36.0" prefWidth="194.0" promptText="e.g mohamed" />
     <Label layoutX="25.0" layoutY="97.0" text="First name" textFill="#6f6c6c">

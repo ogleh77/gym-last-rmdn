@@ -46,6 +46,11 @@ public class UserChooserController extends CommonClass implements Initializable 
         });
     }
 
+    @FXML
+    void cancelHandler() {
+
+    }
+
     private void initFields() throws SQLException {
         listView.setItems(UserService.users());
     }

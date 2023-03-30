@@ -16,9 +16,9 @@ import java.sql.SQLException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymproject/views/info/warning.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymproject/views/users/user-chooser.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        WarningController controller=fxmlLoader.getController();
+        //WarningController controller=fxmlLoader.getController();
         //controller.se
 //        RegistrationController controller = fxmlLoader.getController();
 //        controller.setActiveUser(UserService.users().get(0));

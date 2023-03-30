@@ -1,5 +1,6 @@
 package com.example.gymproject.controllers.done;
 
+import animatefx.animation.FadeOut;
 import com.example.gymproject.dto.UserService;
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CommonClass;
@@ -13,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -142,6 +144,7 @@ public class UpdateUserController extends CommonClass implements Initializable {
                     imageUploaded = true;
                 }
             } catch (FileNotFoundException e) {
+                errorMessage(e.getMessage());
                 e.printStackTrace();
             }
         }
@@ -158,7 +161,7 @@ public class UpdateUserController extends CommonClass implements Initializable {
     void updateHandler() {
         if (isValid(getMandatoryFields(), null)) {
             if (!imageUploaded)
-                checkImage(imageView, "Sawirku wuxuu ku qurxinyaa profile kaga");
+                checkImage(imageView, "Sawirku wuxuu ku qurxinyaa profile kaaga");
             if (start) {
                 service.restart();
                 updateBtn.setGraphic(getLoadingImageView());
@@ -170,6 +173,11 @@ public class UpdateUserController extends CommonClass implements Initializable {
                 start = true;
             }
         }
+    }
+
+    @FXML
+    void cancelHandler() {
+        close();
     }
 
     @FXML
@@ -202,4 +210,15 @@ public class UpdateUserController extends CommonClass implements Initializable {
             };
         }
     };
+
+
+    private void close() {
+        FadeOut fadeOut = new FadeOut(username.getParent());
+        fadeOut.setOnFinished(e -> {
+            Stage stage = (Stage) username.getScene().getWindow();
+            stage.close();
+        });
+        fadeOut.setSpeed(2);
+        fadeOut.play();
+    }
 }
