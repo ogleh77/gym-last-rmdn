@@ -351,7 +351,7 @@
             </JFXButton>
             <MenuButton mnemonicParsing="false" popupSide="LEFT" styleClass="menu-btn-side-pane" text="Settings" textFill="#f5f5f5">
                 <items>
-                    <MenuItem disable="true" mnemonicParsing="false" text="Backup">
+                    <MenuItem mnemonicParsing="false" onAction="#backupHandler" text="Backup">
                         <graphic>
                             <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                                 <Image url="@../style/icons/backup.png" />

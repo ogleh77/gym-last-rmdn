@@ -105,7 +105,7 @@ public class RegistrationController extends CommonClass implements Initializable
             registerBtn.setText(isCustomerNew ? "Saved" : "Updated");
             System.out.println("Done");
 
-            if (done) {
+            if (done && isCustomerNew) {
                 paymentMethod();
             }
         });
@@ -204,7 +204,7 @@ public class RegistrationController extends CommonClass implements Initializable
                         CustomerService.insertOrUpdateCustomer(savingCustomer(), isCustomerNew);
                         if (isCustomerNew) {
                             customersList.add(0, savingCustomer());
-                          //  newCustomerID++;
+                            //  newCustomerID++;
                         }
                         Thread.sleep(1000);
                         // Platform.runLater(() -> informationAlert(isCustomerNew ? "Waxaad diwaan gelisay macmiil cusub" : "Waxaad update garaysay macmiil"));

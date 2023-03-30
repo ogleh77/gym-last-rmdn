@@ -171,6 +171,15 @@ public class DashboardController extends CommonClass implements Initializable {
         }
     }
 
+    @FXML
+    void backupHandler() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/service/backup.fxml"));
+        Scene scene = new Scene(loader.load());
+        Stage stage = new Stage(StageStyle.UNDECORATED);
+        stage.setScene(scene);
+        stage.showAndWait();
+    }
+
     @Override
     public void setActiveUser(Users activeUser) {
         super.setActiveUser(activeUser);

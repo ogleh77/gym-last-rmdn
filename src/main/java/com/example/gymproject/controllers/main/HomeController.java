@@ -84,7 +84,11 @@ public class HomeController extends CommonClass implements Initializable {
         imagePath.setCellValueFactory(customers ->
                 new SimpleStringProperty(customers.getValue().getImage() == null ? "------------"
                         : customers.getValue().getImage()));
-
+        try {
+            customersList = CustomerService.fetchAllCustomer(activeUser);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         if (customersList.isEmpty()) {
             tableView.setPlaceholder(new Label("MACMIIL KUMA DIWAAN GASHANA"));
         } else {
@@ -149,11 +153,7 @@ public class HomeController extends CommonClass implements Initializable {
     @Override
     public void setActiveUser(Users activeUser) {
         super.setActiveUser(activeUser);
-        try {
-            customersList = CustomerService.fetchAllCustomer(activeUser);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
     }
 
     @Override
