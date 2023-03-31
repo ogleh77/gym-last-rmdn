@@ -1,12 +1,11 @@
 package com.example.gymproject.validatecontrolles.main;
 
-import com.example.gymproject.controllers.done.CustomerInfoController;
-import com.example.gymproject.controllers.main.PaymentController;
-import com.example.gymproject.controllers.main.RegistrationController;
+
 import com.example.gymproject.dto.CustomerService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CommonClass;
+import com.example.gymproject.validatecontrolles.info.CustomerInfoController;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
@@ -77,7 +76,7 @@ public class HomeController extends CommonClass implements Initializable {
         address.setCellValueFactory(new PropertyValueFactory<>("address"));
         imagePath.setCellValueFactory(customers ->
                 new SimpleStringProperty(customers.getValue().getImage() == null ? "------------"
-                        : customers.getValue().getImage()));
+                        : "***+"));
         try {
             customersList = CustomerService.fetchAllCustomer(activeUser);
         } catch (SQLException e) {

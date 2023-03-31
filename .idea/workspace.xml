@@ -5,20 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53d89cb0-db6f-4418-906f-24ac9edf989a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/DashboardMenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/54c41628-eec8-47fc-aa3a-cd8b52cb159f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54c41628-eec8-47fc-aa3a-cd8b52cb159f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/UpdateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/UpdateUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/UserCreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/UserCreateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/UserModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/users/UpdateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/users/UpdateUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/users/UserCreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/users/UserCreateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/css/long-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/css/long-style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/dashboard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/DashboardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/CustomerInfoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/UpdateUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/UserChooserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/UserCreateController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/info/CardController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/info/DailyReportController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/info/OutDatedController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/info/WarningController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/main/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/main/PaymentController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/main/RegistrationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service/BackupController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service/GymController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service/SplashScreenController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Customers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/CustomerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/CustomerModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/info/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/info/CardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/info/CustomerInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/info/CustomerInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/info/OutDatedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/info/OutDatedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/info/WarningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/info/WarningController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/main/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/main/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/main/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/main/PaymentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/main/RegistrationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/main/RegistrationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/service/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/service/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/service/SplashScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/service/SplashScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,7 +244,7 @@
       <workItem from="1680240613551" duration="517000" />
       <workItem from="1680245906749" duration="185000" />
       <workItem from="1680246127182" duration="1119000" />
-      <workItem from="1680249348622" duration="837000" />
+      <workItem from="1680249348622" duration="1988000" />
     </task>
     <servers />
   </component>

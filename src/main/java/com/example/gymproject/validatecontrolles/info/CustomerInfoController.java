@@ -131,13 +131,13 @@ public class CustomerInfoController extends CommonClass implements Initializable
             } catch (CustomException e) {
                 errorMessage(e.getMessage());
             }
-            try {
-                if (customer.getImage() != null) {
-                    imgView.setImage(new Image(new FileInputStream(customer.getImage())));
-                }
-            } catch (FileNotFoundException e) {
-                errorMessage("Sawirka lama helin ama khaladkan ayaa dhacay" + e.getMessage());
-            }
+//            try {
+//                if (customer.getImage() != null) {
+//                    imgView.setImage(new Image(new FileInputStream(customer.getImage())));
+//                }
+//            } catch (FileNotFoundException e) {
+//                errorMessage("Sawirka lama helin ama khaladkan ayaa dhacay" + e.getMessage());
+//            }
         }
     }
 

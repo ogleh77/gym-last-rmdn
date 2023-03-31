@@ -14,7 +14,7 @@ public class Customers {
     private final SimpleStringProperty gander = new SimpleStringProperty();
     private final SimpleStringProperty shift = new SimpleStringProperty();
     private final SimpleStringProperty address = new SimpleStringProperty();
-    private final SimpleStringProperty image = new SimpleStringProperty();
+    private byte[] image;
     private final SimpleDoubleProperty weight = new SimpleDoubleProperty();
     private final SimpleStringProperty whoAdded = new SimpleStringProperty();
 
@@ -23,7 +23,7 @@ public class Customers {
     public Customers() {
     }
 
-    public Customers(int customerId, String firstName, String lastName, String middleName, String phone, String gander, String shift, String address, String image, double weight, String whoAdded) {
+    public Customers(int customerId, String firstName, String lastName, String middleName, String phone, String gander, String shift, String address, byte[] image, double weight, String whoAdded) {
         this.customerId = customerId;
         this.setFirstName(firstName);
         this.setLastName(lastName);
@@ -32,7 +32,7 @@ public class Customers {
         this.setGander(gander);
         this.setShift(shift);
         this.setAddress(address);
-        this.setImage(image);
+        this.image = image;
         this.setWeight(weight);
         this.setWhoAdded(whoAdded);
         this.payments = FXCollections.observableArrayList();
@@ -130,16 +130,12 @@ public class Customers {
         this.address.set(address);
     }
 
-    public String getImage() {
-        return image.get();
-    }
-
-    public SimpleStringProperty imageProperty() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(String image) {
-        this.image.set(image);
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public double getWeight() {

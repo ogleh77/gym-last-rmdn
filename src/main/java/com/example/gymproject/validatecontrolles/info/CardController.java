@@ -62,13 +62,13 @@ public class CardController extends CommonClass implements Initializable {
         System.out.println(customer.getFirstName() + " " + period);
         phone.setText(customer.getPhone());
         shift.setText(customer.getShift());
-        try {
-            if (customer.getImage() != null) {
-                customerPhoto.setImage(new Image(new FileInputStream(customer.getImage())));
-            }
-        } catch (FileNotFoundException e) {
-            errorMessage(e.getMessage());
-        }
+//        try {
+//            if (customer.getImage() != null) {
+//                customerPhoto.setImage(new Image(new FileInputStream(customer.getImage())));
+//            }
+//        } catch (FileNotFoundException e) {
+//            errorMessage(e.getMessage());
+//        }
 
 
         // TODO: 24/03/2023 Message   print insha Allah e.g             outDated.setText(period.getYears() == 1 ? period.getYears() + " year " + period.getMonths() + " months and " + period.getYears() + " days ago " : period.getYears() + " years ago");

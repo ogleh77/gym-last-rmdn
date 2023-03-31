@@ -1,7 +1,6 @@
 package com.example.gymproject.validatecontrolles.main;
 
 import animatefx.animation.Shake;
-import com.example.gymproject.controllers.main.PaymentController;
 import com.example.gymproject.dto.CustomerService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Gym;
@@ -23,10 +22,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -163,15 +159,14 @@ public class RegistrationController extends CommonClass implements Initializable
             weight.setText(String.valueOf(customer.getWeight()).substring(0, 2));
             shift.setValue(customer.getShift());
             address.setText(customer.getAddress() != null ? customer.getAddress() : "No address");
-            try {
-                if (customer.getImage() != null) {
-                    imageUploaded = true;
-                    imgView.setImage(new Image(new FileInputStream(customer.getImage())));
-                    selectedFile = new File(customer.getImage());
-                }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+
+            if (customer.getImage() != null) {
+                ByteArrayInputStream bis = new ByteArrayInputStream(customer.getImage());
+                Image image = new Image(bis);
+                imageUploaded = true;
+                imgView.setImage(image);
             }
+
             headerInfo.setText("CUSTOMER UPDATE PAGE");
             isCustomerNew = false;
             registerBtn.setText("Update");
@@ -235,14 +230,15 @@ public class RegistrationController extends CommonClass implements Initializable
         String _shift = shift.getValue() != null ? shift.getValue() : "Morning";
 
         if (customer == null) {
-            customer = new Customers(newCustomerID, firstName.getText().trim(), lastName.getText().trim(), middleName.getText().trim(), phone.getText().trim(), gander, _shift, _address, image, _weight, activeUser.getUsername());
+            customer = new Customers(newCustomerID, firstName.getText().trim(), lastName.getText().trim(), middleName.getText().trim(), phone.getText().trim(), gander, _shift, _address,
+                    selectedFile == null ? null : readFile(selectedFile.getAbsolutePath()), _weight, activeUser.getUsername());
         } else {
             customer.setShift(_shift);
             customer.setCustomerId(customerId);
             customer.setFirstName(firstName.getText().trim());
             customer.setGander(gander);
             customer.setWhoAdded(activeUser.getUsername());
-            customer.setImage(image);
+            customer.setImage(selectedFile == null ? customer.getImage() : readFile(selectedFile.getAbsolutePath()));
             customer.setAddress(_address.trim());
             customer.setLastName(lastName.getText().trim());
             customer.setMiddleName(middleName.getText().trim());
@@ -331,5 +327,23 @@ public class RegistrationController extends CommonClass implements Initializable
                 female.setSelected(false);
             }
         }
+    }
+
+    private byte[] readFile(String file) {
+
+        ByteArrayOutputStream bos = null;
+        try {
+            File f = new File(file);
+            FileInputStream fis = new FileInputStream(f);
+            byte[] buffer = new byte[1024];
+            bos = new ByteArrayOutputStream();
+            for (int len; (len = fis.read(buffer)) != -1; ) {
+                bos.write(buffer, 0, len);
+            }
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        return bos != null ? bos.toByteArray() : null;
+
     }
 }

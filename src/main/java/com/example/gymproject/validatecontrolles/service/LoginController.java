@@ -1,7 +1,6 @@
 package com.example.gymproject.validatecontrolles.service;
 
 import animatefx.animation.FadeOut;
-import com.example.gymproject.controllers.service.SplashScreenController;
 import com.example.gymproject.dto.UserService;
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CommonClass;

@@ -1,7 +1,6 @@
 package com.example.gymproject.validatecontrolles.main;
 
 import animatefx.animation.FadeIn;
-import com.example.gymproject.controllers.main.HomeController;
 import com.example.gymproject.dto.GymService;
 import com.example.gymproject.dto.PaymentService;
 import com.example.gymproject.entity.Box;
@@ -162,13 +161,13 @@ public class PaymentController extends CommonClass implements Initializable {
             male.setSelected(customer.getGander().equals("Male"));
             female.setSelected(customer.getGander().equals("Female"));
 
-            try {
-                if (customer.getImage() != null) {
-                    imgView.setImage(new Image(new FileInputStream(customer.getImage())));
-                }
-            } catch (FileNotFoundException e) {
-                errorMessage("Khalad ba ka dhacay " + e.getMessage());
-            }
+//            try {
+//                if (customer.getImage() != null) {
+//                    imgView.setImage(new Image(new FileInputStream(customer.getImage())));
+//                }
+//            } catch (FileNotFoundException e) {
+//                errorMessage("Khalad ba ka dhacay " + e.getMessage());
+//            }
             try {
                 paymentsList = PaymentService.fetchAllCustomersPayments(customer.getPhone());
                 System.out.println(paymentsList);

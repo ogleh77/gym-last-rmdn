@@ -121,7 +121,7 @@ public class CustomerModel {
             if (payments == null || payments.isEmpty()) {
                 continue;
             }
-            Customers customer = new Customers(rs.getInt("customer_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("middle_name"), rs.getString("phone"), rs.getString("gander"), rs.getString("shift"), rs.getString("address"), rs.getString("image"), rs.getDouble("weight"), rs.getString("who_added"));
+            Customers customer = new Customers(rs.getInt("customer_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("middle_name"), rs.getString("phone"), rs.getString("gander"), rs.getString("shift"), rs.getString("address"), rs.getBytes("image"), rs.getDouble("weight"), rs.getString("who_added"));
 
             customer.setPayments(payments);
             customers.add(customer);
@@ -146,7 +146,8 @@ public class CustomerModel {
 
     //---------------––Helpers---------------------
     private void getCustomers(ObservableList<Customers> customers, ResultSet rs, ObservableList<Payments> payment) throws SQLException {
-        Customers customer = new Customers(rs.getInt("customer_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("middle_name"), rs.getString("phone"), rs.getString("gander"), rs.getString("shift"), rs.getString("address"), rs.getString("image"), rs.getDouble("weight"), rs.getString("who_added"));
+        Customers customer = new Customers(rs.getInt("customer_id"), rs.getString("first_name"), rs.getString("last_name"), rs.getString("middle_name"), rs.getString("phone"), rs.getString("gander"), rs.getString("shift"), rs.getString("address"), rs.getBytes("image"),
+                rs.getDouble("weight"), rs.getString("who_added"));
 
         if (payment != null) {
             customer.setPayments(payment);
@@ -163,7 +164,7 @@ public class CustomerModel {
         ps.setString(5, customer.getGander());
         ps.setString(6, customer.getShift());
         ps.setString(7, customer.getAddress());
-        ps.setString(8, customer.getImage());
+        ps.setBytes(8, customer.getImage());
         ps.setDouble(9, customer.getWeight());
         if (insert) {
             ps.setString(10, customer.getWhoAdded());

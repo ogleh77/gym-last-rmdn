@@ -2,7 +2,6 @@ package com.example.gymproject.validatecontrolles.info;
 
 
 import animatefx.animation.FadeOut;
-import com.example.gymproject.controllers.info.CardController;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.helpers.CommonClass;
 import javafx.application.Platform;
