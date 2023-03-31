@@ -1,8 +1,8 @@
-package com.example.gymproject.dto;
+package com.example.gymproject.dto.main;
 
 import com.example.gymproject.entity.Box;
 import com.example.gymproject.helpers.CustomException;
-import com.example.gymproject.model.BoxModel;
+import com.example.gymproject.model.services.BoxModel;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;

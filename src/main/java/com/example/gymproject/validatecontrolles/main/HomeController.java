@@ -1,7 +1,7 @@
 package com.example.gymproject.validatecontrolles.main;
 
 
-import com.example.gymproject.dto.CustomerService;
+import com.example.gymproject.dto.services.CustomerService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CommonClass;

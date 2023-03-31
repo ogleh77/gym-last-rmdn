@@ -1,10 +1,11 @@
-package com.example.gymproject.model;
+package com.example.gymproject.model.main;
 
-import com.example.gymproject.dto.BoxService;
+import com.example.gymproject.dto.main.BoxService;
 import com.example.gymproject.entity.Box;
 import com.example.gymproject.entity.Payments;
 import com.example.gymproject.helpers.CustomException;
 import com.example.gymproject.helpers.DbConnection;
+import com.example.gymproject.model.services.DailyReportModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

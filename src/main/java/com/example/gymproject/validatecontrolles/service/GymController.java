@@ -1,8 +1,8 @@
 package com.example.gymproject.validatecontrolles.service;
 
 import animatefx.animation.FadeOut;
-import com.example.gymproject.dto.BoxService;
-import com.example.gymproject.dto.GymService;
+import com.example.gymproject.dto.main.BoxService;
+import com.example.gymproject.dto.main.GymService;
 import com.example.gymproject.entity.Box;
 import com.example.gymproject.entity.Gym;
 import com.example.gymproject.helpers.CommonClass;

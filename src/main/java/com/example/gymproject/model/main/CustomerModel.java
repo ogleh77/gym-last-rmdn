@@ -1,6 +1,6 @@
-package com.example.gymproject.model;
+package com.example.gymproject.model.main;
 
-import com.example.gymproject.dto.PaymentService;
+import com.example.gymproject.dto.services.PaymentService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Payments;
 import com.example.gymproject.entity.Users;

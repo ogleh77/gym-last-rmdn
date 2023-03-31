@@ -1,4 +1,4 @@
-package com.example.gymproject.validatecontrolles.info;
+package com.example.gymproject.validatecontrolles.service;
 
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.helpers.CommonClass;
@@ -9,8 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.ByteArrayInputStream;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Period;
@@ -62,13 +61,12 @@ public class CardController extends CommonClass implements Initializable {
         System.out.println(customer.getFirstName() + " " + period);
         phone.setText(customer.getPhone());
         shift.setText(customer.getShift());
-//        try {
-//            if (customer.getImage() != null) {
-//                customerPhoto.setImage(new Image(new FileInputStream(customer.getImage())));
-//            }
-//        } catch (FileNotFoundException e) {
-//            errorMessage(e.getMessage());
-//        }
+        if (customer.getImage() != null) {
+            ByteArrayInputStream bis = new ByteArrayInputStream(customer.getImage());
+            Image image = new Image(bis);
+            imageUploaded = true;
+            customerPhoto.setImage(image);
+        }
 
 
         // TODO: 24/03/2023 Message   print insha Allah e.g             outDated.setText(period.getYears() == 1 ? period.getYears() + " year " + period.getMonths() + " months and " + period.getYears() + " days ago " : period.getYears() + " years ago");

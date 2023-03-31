@@ -1,10 +1,10 @@
-package com.example.gymproject.dto;
+package com.example.gymproject.dto.services;
 
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Payments;
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CustomException;
-import com.example.gymproject.model.CustomerModel;
+import com.example.gymproject.model.main.CustomerModel;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;

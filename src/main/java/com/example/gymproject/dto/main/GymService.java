@@ -1,8 +1,8 @@
-package com.example.gymproject.dto;
+package com.example.gymproject.dto.main;
 
 import com.example.gymproject.entity.Gym;
 import com.example.gymproject.helpers.CustomException;
-import com.example.gymproject.model.GymModel;
+import com.example.gymproject.model.services.GymModel;
 
 import java.sql.SQLException;
 

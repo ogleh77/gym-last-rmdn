@@ -2,7 +2,7 @@ package com.example.gymproject.validatecontrolles.service;
 
 
 import com.example.gymproject.HelloApplication;
-import com.example.gymproject.dto.CustomerService;
+import com.example.gymproject.dto.services.CustomerService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Payments;
 import com.example.gymproject.entity.Users;

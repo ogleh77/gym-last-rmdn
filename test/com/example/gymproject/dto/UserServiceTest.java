@@ -1,10 +1,9 @@
 package com.example.gymproject.dto;
 
+import com.example.gymproject.dto.main.UserService;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class UserServiceTest {
 

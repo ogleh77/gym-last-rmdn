@@ -1,6 +1,6 @@
 package com.example.gymproject;
 
-import com.example.gymproject.dto.UserService;
+import com.example.gymproject.dto.main.UserService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.validatecontrolles.DashboardController;
 import javafx.application.Application;

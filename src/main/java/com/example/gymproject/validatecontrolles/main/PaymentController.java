@@ -1,8 +1,8 @@
 package com.example.gymproject.validatecontrolles.main;
 
 import animatefx.animation.FadeIn;
-import com.example.gymproject.dto.GymService;
-import com.example.gymproject.dto.PaymentService;
+import com.example.gymproject.dto.main.GymService;
+import com.example.gymproject.dto.services.PaymentService;
 import com.example.gymproject.entity.Box;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Gym;
@@ -24,8 +24,6 @@ import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
 import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;

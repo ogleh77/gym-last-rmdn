@@ -3,7 +3,7 @@ package com.example.gymproject.validatecontrolles;
 import animatefx.animation.FadeIn;
 import animatefx.animation.SlideInLeft;
 import animatefx.animation.SlideOutLeft;
-import com.example.gymproject.dto.GymService;
+import com.example.gymproject.dto.main.GymService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Gym;
 import com.example.gymproject.entity.Users;

@@ -1,6 +1,6 @@
-package com.example.gymproject.model;
+package com.example.gymproject.model.services;
 
-import com.example.gymproject.dto.BoxService;
+import com.example.gymproject.dto.main.BoxService;
 import com.example.gymproject.entity.Gym;
 import com.example.gymproject.helpers.DbConnection;
 

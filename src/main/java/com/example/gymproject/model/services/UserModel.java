@@ -1,4 +1,4 @@
-package com.example.gymproject.model;
+package com.example.gymproject.model.services;
 
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.DbConnection;

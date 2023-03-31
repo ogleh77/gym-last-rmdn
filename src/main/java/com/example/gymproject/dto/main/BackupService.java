@@ -1,7 +1,7 @@
-package com.example.gymproject.dto;
+package com.example.gymproject.dto.main;
 
 import com.example.gymproject.helpers.CustomException;
-import com.example.gymproject.model.BackupModel;
+import com.example.gymproject.model.services.BackupModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

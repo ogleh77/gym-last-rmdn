@@ -3,7 +3,7 @@ package com.example.gymproject.validatecontrolles.info;
 
 import com.example.gymproject.entity.DailyReport;
 import com.example.gymproject.helpers.CommonClass;
-import com.example.gymproject.model.DailyReportModel;
+import com.example.gymproject.model.services.DailyReportModel;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;

@@ -1,10 +1,11 @@
 package com.example.gymproject.validatecontrolles.info;
 
 
-import com.example.gymproject.dto.CustomerService;
+import com.example.gymproject.dto.services.CustomerService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CommonClass;
+import com.example.gymproject.validatecontrolles.service.CardController;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import javafx.application.Platform;

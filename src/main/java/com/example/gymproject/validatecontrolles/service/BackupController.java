@@ -1,7 +1,7 @@
 package com.example.gymproject.validatecontrolles.service;
 
 import animatefx.animation.FadeOut;
-import com.example.gymproject.dto.BackupService;
+import com.example.gymproject.dto.main.BackupService;
 import com.example.gymproject.helpers.CommonClass;
 import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;

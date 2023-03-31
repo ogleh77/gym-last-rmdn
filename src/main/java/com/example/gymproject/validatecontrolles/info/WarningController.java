@@ -4,6 +4,7 @@ package com.example.gymproject.validatecontrolles.info;
 import animatefx.animation.FadeOut;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.helpers.CommonClass;
+import com.example.gymproject.validatecontrolles.service.CardController;
 import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

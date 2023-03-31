@@ -1,7 +1,7 @@
 package com.example.gymproject.validatecontrolles.users;
 
 import animatefx.animation.FadeOut;
-import com.example.gymproject.dto.UserService;
+import com.example.gymproject.dto.main.UserService;
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CommonClass;
 import com.example.gymproject.helpers.CustomException;

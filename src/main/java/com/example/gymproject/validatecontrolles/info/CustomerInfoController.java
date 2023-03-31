@@ -1,7 +1,7 @@
 package com.example.gymproject.validatecontrolles.info;
 
-import com.example.gymproject.dto.GymService;
-import com.example.gymproject.dto.PaymentService;
+import com.example.gymproject.dto.main.GymService;
+import com.example.gymproject.dto.services.PaymentService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Gym;
 import com.example.gymproject.entity.Payments;
@@ -141,8 +141,6 @@ public class CustomerInfoController extends CommonClass implements Initializable
 
 
     private void initFields() {
-        gymTitle.setText(currentGym.getGymName() + " eDahab: " + currentGym.geteDahab() + " Zaad: " + currentGym.getZaad());
-
         if (payments.isEmpty()) {
             tableView.setPlaceholder(new Label("MACMIILKU PAYMENTS MALEH.."));
         } else {

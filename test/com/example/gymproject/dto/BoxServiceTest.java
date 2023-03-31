@@ -1,5 +1,6 @@
 package com.example.gymproject.dto;
 
+import com.example.gymproject.dto.main.BoxService;
 import com.example.gymproject.entity.Box;
 import com.example.gymproject.helpers.CustomException;
 import org.junit.jupiter.api.Test;

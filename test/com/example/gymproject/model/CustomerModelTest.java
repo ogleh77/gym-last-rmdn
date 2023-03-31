@@ -1,8 +1,7 @@
 package com.example.gymproject.model;
 
-import com.example.gymproject.dto.CustomerService;
-import com.example.gymproject.dto.PaymentService;
-import com.example.gymproject.dto.UserService;
+import com.example.gymproject.dto.services.CustomerService;
+import com.example.gymproject.dto.main.UserService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Users;
 import org.junit.jupiter.api.Test;
