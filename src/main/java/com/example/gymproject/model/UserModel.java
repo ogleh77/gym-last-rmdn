@@ -5,6 +5,10 @@ import com.example.gymproject.helpers.DbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.*;
 
 public class UserModel {
@@ -43,7 +47,7 @@ public class UserModel {
         while (rs.next()) {
             user = new Users(rs.getInt(1), rs.getString(2), rs.getString(3),
                     rs.getString(4), rs.getString(5), rs.getString(6),
-                    rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10));
+                    rs.getString(7), rs.getString(8), rs.getBytes(9), rs.getString(10));
             users.add(user);
         }
         statement.close();
@@ -72,9 +76,25 @@ public class UserModel {
         ps.setString(5, users.getShift());
         ps.setString(6, users.getUsername());
         ps.setString(7, users.getPassword());
-        ps.setString(8, users.getImage());
+        ps.setBytes(8, users.getImage());
         ps.setString(9, users.getRole());
         ps.executeUpdate();
         ps.close();
+    }
+
+    private byte[] readFile(String file) {
+        ByteArrayOutputStream bos = null;
+        try {
+            File f = new File(file);
+            FileInputStream fis = new FileInputStream(f);
+            byte[] buffer = new byte[1024];
+            bos = new ByteArrayOutputStream();
+            for (int len; (len = fis.read(buffer)) != -1; ) {
+                bos.write(buffer, 0, len);
+            }
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        return bos != null ? bos.toByteArray() : null;
     }
 }

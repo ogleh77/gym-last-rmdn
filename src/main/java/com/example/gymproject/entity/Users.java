@@ -11,10 +11,11 @@ public class Users {
     private final SimpleStringProperty shift = new SimpleStringProperty();
     private final SimpleStringProperty username = new SimpleStringProperty();
     private final SimpleStringProperty password = new SimpleStringProperty();
-    private final SimpleStringProperty image = new SimpleStringProperty();
+    private byte[] image;
     private final SimpleStringProperty role = new SimpleStringProperty();
 
-    public Users(int userId, String firstName, String lastName, String phone, String gender, String shift, String username, String password, String image, String role) {
+
+    public Users(int userId, String firstName, String lastName, String phone, String gender, String shift, String username, String password, byte[] image, String role) {
         this.userId = userId;
         this.setFirstName(firstName);
         this.setLastName(lastName);
@@ -23,7 +24,7 @@ public class Users {
         this.setShift(shift);
         this.setUsername(username);
         this.setPassword(password);
-        this.setImage(image);
+        this.image = image;
         this.setRole(role);
     }
 
@@ -115,18 +116,6 @@ public class Users {
         this.password.set(password);
     }
 
-    public String getImage() {
-        return image.get();
-    }
-
-    public SimpleStringProperty imageProperty() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image.set(image);
-    }
-
     public String getRole() {
         return role.get();
     }
@@ -137,6 +126,14 @@ public class Users {
 
     public void setRole(String role) {
         this.role.set(role);
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     @Override

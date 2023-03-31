@@ -21,10 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -52,6 +49,8 @@ public class DashboardController extends CommonClass implements Initializable {
     private ObservableList<Customers> warningList;
     private boolean visible = false;
 
+    @FXML
+    private HBox menuHBox;
     public DashboardController() throws SQLException {
         this.currentGym = GymService.getGym();
     }
@@ -61,6 +60,12 @@ public class DashboardController extends CommonClass implements Initializable {
         Platform.runLater(() -> {
             dashboardStage = (Stage) borderPane.getScene().getWindow();
             gymName.textProperty().bind(currentGym.gymNameProperty());
+            borderPane.setLeft(null);
+            try {
+                dashboard();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
     }
 
@@ -96,6 +101,9 @@ public class DashboardController extends CommonClass implements Initializable {
         controller.setActiveUser(activeUser);
         controller.setBorderPane(borderPane);
         controller.setCurrentGym(currentGym);
+
+
+        // TODO: 30/03/2023 Insha Allah samee dashboar pane gooniya 
     }
 
     @FXML
@@ -191,6 +199,22 @@ public class DashboardController extends CommonClass implements Initializable {
             fadeIn.setCycleCount(20);
             fadeIn.play();
         }
+    }
+
+    @FXML
+    void dashboardHandler() throws IOException {
+        dashboard();
+        borderPane.setLeft(null);
+        menuHBox.setVisible(!menuHBox.isVisible());
+    }
+
+    private void dashboard() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/main/dashboard-menu.fxml"));
+        AnchorPane anchorPane = loader.load();
+        DashboardMenuController controller = loader.getController();
+        controller.setMenus(borderPane, sidePane,menuHBox, warningStack);
+        controller.setActiveUser(activeUser);
+        borderPane.setCenter(anchorPane);
     }
     // TODO: 25/03/2023 Hadii customer ku dashboard ku dhufto dhaman xidh top pane and side pane Insha Allah
 }

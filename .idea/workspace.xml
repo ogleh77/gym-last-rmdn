@@ -5,13 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53d89cb0-db6f-4418-906f-24ac9edf989a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/info/OutDatedController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/DashboardMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54c41628-eec8-47fc-aa3a-cd8b52cb159f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54c41628-eec8-47fc-aa3a-cd8b52cb159f.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/UpdateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/UpdateUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/UserCreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/UserCreateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/UserModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/UserModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/info/WarningController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/info/WarningController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/info/outdated.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/info/outdated.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/info/warning.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/info/warning.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/main/registrations.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/main/registrations.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/users/UpdateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/users/UpdateUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/users/UserCreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/validatecontrolles/users/UserCreateController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/css/long-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/css/long-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/dashboard.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,10 +28,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -214,7 +221,12 @@
       <workItem from="1680084676607" duration="5301000" />
       <workItem from="1680153748813" duration="8941000" />
       <workItem from="1680185957312" duration="3110000" />
-      <workItem from="1680195690773" duration="7032000" />
+      <workItem from="1680195690773" duration="7133000" />
+      <workItem from="1680207545125" duration="2074000" />
+      <workItem from="1680240613551" duration="517000" />
+      <workItem from="1680245906749" duration="185000" />
+      <workItem from="1680246127182" duration="1119000" />
+      <workItem from="1680249348622" duration="837000" />
     </task>
     <servers />
   </component>

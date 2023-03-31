@@ -88,7 +88,7 @@ public class UserCreateController extends CommonClass implements Initializable {
 
         return new Users(0, firstname.getText().trim(), lastname.getText().trim()
                 , phone.getText().trim(), gander, shift.getValue().trim(), username.getText().trim(),
-                oldPassword.getText().trim(), image, role);
+                oldPassword.getText().trim(), null, role);
 
     }
 

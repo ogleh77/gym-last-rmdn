@@ -5,6 +5,12 @@
     -fx-background-radius: 10;
 }
 
+.dashboard {
+    -fx-background-color: #f8f5f5;
+    -fx-pref-width: 1200;
+    -fx-pref-height: 760;
+ }
+
 .top-pane {
     -fx-background-color: #cce3ee;
     -fx-pref-width: 1110;

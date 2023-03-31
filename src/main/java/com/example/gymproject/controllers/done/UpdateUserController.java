@@ -87,7 +87,7 @@ public class UpdateUserController extends CommonClass implements Initializable {
         users.setLastName(lastname.getText().trim());
         users.setUsername(username.getText().trim());
         users.setPassword(password.getText().trim());
-        users.setImage(image);
+       // users.setImage(image);
         users.setGender(gander);
         users.setRole(role);
         users.setShift(shift.getValue().trim());
@@ -136,17 +136,17 @@ public class UpdateUserController extends CommonClass implements Initializable {
 
 
         if (user.getImage() != null) {
-            try {
+            //try {
                 if (user.getImage() != null) {
-                    imageView.setImage(new Image(new FileInputStream(
-                            user.getImage())));
-                    selectedFile = new File(user.getImage());
+//                    imageView.setImage(new Image(new FileInputStream(
+//                            user.getImage())));
+                   // selectedFile = new File(user.getImage());
                     imageUploaded = true;
                 }
-            } catch (FileNotFoundException e) {
-                errorMessage(e.getMessage());
-                e.printStackTrace();
-            }
+//            } catch (FileNotFoundException e) {
+//                errorMessage(e.getMessage());
+//                e.printStackTrace();
+//            }
         }
     }
 

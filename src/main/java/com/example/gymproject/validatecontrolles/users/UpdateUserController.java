@@ -16,9 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -77,8 +75,8 @@ public class UpdateUserController extends CommonClass implements Initializable {
         });
     }
 
-    private Users users() {
-        String image = selectedFile != null ? selectedFile.getAbsolutePath() : null;
+    private Users users() throws FileNotFoundException {
+
         String gander = male.isSelected() ? "Male" : "Female";
         String role = superAdmin.isSelected() ? "super_admin" : "admin";
 
@@ -87,7 +85,7 @@ public class UpdateUserController extends CommonClass implements Initializable {
         users.setLastName(lastname.getText().trim());
         users.setUsername(username.getText().trim());
         users.setPassword(password.getText().trim());
-        users.setImage(image);
+        users.setImage(selectedFile == null ? users.getImage() : readFile(selectedFile.getAbsolutePath()));
         users.setGender(gander);
         users.setRole(role);
         users.setShift(shift.getValue().trim());
@@ -144,16 +142,12 @@ public class UpdateUserController extends CommonClass implements Initializable {
 
 
         if (user.getImage() != null) {
-            try {
-                if (user.getImage() != null) {
-                    imageView.setImage(new Image(new FileInputStream(
-                            user.getImage())));
-                    selectedFile = new File(user.getImage());
-                    imageUploaded = true;
-                }
-            } catch (FileNotFoundException e) {
-                errorMessage(e.getMessage());
-                e.printStackTrace();
+            ByteArrayInputStream bis = new ByteArrayInputStream(user.getImage());
+            Image image = new Image(bis);
+            if (user.getImage() != null) {
+                imageView.setImage(image);
+//                selectedFile = new File(user.getImage());
+                imageUploaded = true;
             }
         }
     }
@@ -206,6 +200,8 @@ public class UpdateUserController extends CommonClass implements Initializable {
                                 Platform.runLater(() -> informationAlert("You are successfully updated"));
                             } catch (SQLException e) {
                                 Platform.runLater(() -> errorMessage(e.getMessage()));
+                            } catch (FileNotFoundException e) {
+                                throw new RuntimeException(e);
                             }
 
                         });
@@ -228,5 +224,23 @@ public class UpdateUserController extends CommonClass implements Initializable {
         });
         fadeOut.setSpeed(2);
         fadeOut.play();
+    }
+
+    private byte[] readFile(String file) {
+
+        ByteArrayOutputStream bos = null;
+        try {
+            File f = new File(file);
+            FileInputStream fis = new FileInputStream(f);
+            byte[] buffer = new byte[1024];
+            bos = new ByteArrayOutputStream();
+            for (int len; (len = fis.read(buffer)) != -1; ) {
+                bos.write(buffer, 0, len);
+            }
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        return bos != null ? bos.toByteArray() : null;
+
     }
 }

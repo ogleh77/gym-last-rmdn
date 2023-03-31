@@ -15,6 +15,10 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
@@ -96,7 +100,9 @@ public class UserCreateController extends CommonClass implements Initializable {
         String gander = male.isSelected() ? "Male" : "Female";
         String role = superAdmin.isSelected() ? "super_admin" : "admin";
         // TODO: 30/03/2023 Delete currently inserted user
-        return new Users(nextId, firstname.getText().trim(), lastname.getText().trim(), phone.getText().trim(), gander, shift.getValue().trim(), username.getText().trim(), oldPassword.getText().trim(), image, role);
+        return new Users(nextId, firstname.getText().trim(), lastname.getText().trim(), phone.getText().trim(), gander,
+                shift.getValue().trim(), username.getText().trim(),
+                oldPassword.getText().trim(), selectedFile == null ? null : readFile(selectedFile.getAbsolutePath()), role);
     }
 
     private void initFields() {
@@ -185,4 +191,23 @@ public class UserCreateController extends CommonClass implements Initializable {
         fadeOut.setOnFinished(e -> stage.close());
         fadeOut.play();
     }
+
+    private byte[] readFile(String file) {
+
+        ByteArrayOutputStream bos = null;
+        try {
+            File f = new File(file);
+            FileInputStream fis = new FileInputStream(f);
+            byte[] buffer = new byte[1024];
+            bos = new ByteArrayOutputStream();
+            for (int len; (len = fis.read(buffer)) != -1; ) {
+                bos.write(buffer, 0, len);
+            }
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        return bos != null ? bos.toByteArray() : null;
+
+    }
+
 }
