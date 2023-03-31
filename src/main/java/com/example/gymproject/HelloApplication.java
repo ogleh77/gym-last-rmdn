@@ -1,9 +1,11 @@
 package com.example.gymproject;
 
-import com.example.gymproject.dto.CustomerService;
 import com.example.gymproject.dto.UserService;
-import com.example.gymproject.validatecontrolles.main.RegistrationController;
+import com.example.gymproject.entity.Customers;
+import com.example.gymproject.validatecontrolles.DashboardController;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -15,16 +17,16 @@ import java.sql.SQLException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, SQLException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymproject/views/main/registrations.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/gymproject/views/dashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        RegistrationController controller = fxmlLoader.getController();
+//        PaymentController controller = fxmlLoader.getController();
+        //controller.setActiveUser(UserService.users().get(0));
+        //  controller.setCustomer(CustomerService.fetchAllCustomer(UserService.users().get(0)).get(0));
+        DashboardController controller = fxmlLoader.getController();
         controller.setActiveUser(UserService.users().get(0));
-        controller.setCustomer(CustomerService.fetchAllCustomer(UserService.users().get(0)).get(0));
-//        DashboardController controller=fxmlLoader.getController();
-//        controller.setActiveUser(UserService.users().get(0));
-//        ObservableList<Customers>warningList= FXCollections.observableArrayList();
-//        controller.setWarningList(warningList);
-        //  controller.setUser(UserService.users().get(1));
+        ObservableList<Customers> warningList = FXCollections.observableArrayList();
+        controller.setWarningList(warningList);
+        //controller.setUser(UserService.users().get(1));
         //WarningController controller=fxmlLoader.getController();
         //controller.se
 //        RegistrationController controller = fxmlLoader.getController();

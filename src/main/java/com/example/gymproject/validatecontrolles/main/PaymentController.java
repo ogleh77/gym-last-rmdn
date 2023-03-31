@@ -23,6 +23,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 
+import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -150,8 +151,7 @@ public class PaymentController extends CommonClass implements Initializable {
     @Override
     public void setCustomer(Customers customer) {
         super.setCustomer(customer);
-        this.gymTitle.setText(currentGym.getGymName() + " eDahab: " + currentGym.geteDahab() + " Zaad: " + currentGym.getZaad());
-        if (customer != null) {
+         if (customer != null) {
             firstName.setText(customer.getFirstName());
             middleName.setText(customer.getFirstName());
             lastName.setText(customer.getFirstName());
@@ -161,13 +161,12 @@ public class PaymentController extends CommonClass implements Initializable {
             male.setSelected(customer.getGander().equals("Male"));
             female.setSelected(customer.getGander().equals("Female"));
 
-//            try {
-//                if (customer.getImage() != null) {
-//                    imgView.setImage(new Image(new FileInputStream(customer.getImage())));
-//                }
-//            } catch (FileNotFoundException e) {
-//                errorMessage("Khalad ba ka dhacay " + e.getMessage());
-//            }
+            if (customer.getImage() != null) {
+                ByteArrayInputStream bis = new ByteArrayInputStream(customer.getImage());
+                Image image = new Image(bis);
+                imageUploaded = true;
+                imgView.setImage(image);
+            }
             try {
                 paymentsList = PaymentService.fetchAllCustomersPayments(customer.getPhone());
                 System.out.println(paymentsList);

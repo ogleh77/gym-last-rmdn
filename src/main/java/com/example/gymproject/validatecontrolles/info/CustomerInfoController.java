@@ -20,8 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.ByteArrayInputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -131,13 +130,12 @@ public class CustomerInfoController extends CommonClass implements Initializable
             } catch (CustomException e) {
                 errorMessage(e.getMessage());
             }
-//            try {
-//                if (customer.getImage() != null) {
-//                    imgView.setImage(new Image(new FileInputStream(customer.getImage())));
-//                }
-//            } catch (FileNotFoundException e) {
-//                errorMessage("Sawirka lama helin ama khaladkan ayaa dhacay" + e.getMessage());
-//            }
+            if (customer.getImage() != null) {
+                ByteArrayInputStream bis = new ByteArrayInputStream(customer.getImage());
+                Image image = new Image(bis);
+                imageUploaded = true;
+                imgView.setImage(image);
+            }
         }
     }
 
