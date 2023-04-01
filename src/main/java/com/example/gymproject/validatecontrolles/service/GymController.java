@@ -36,9 +36,6 @@ public class GymController extends CommonClass implements Initializable {
     private TextField gymName;
 
     @FXML
-    private AnchorPane gymPane;
-
-    @FXML
     private ListView<Box> listView;
 
     @FXML
@@ -78,7 +75,7 @@ public class GymController extends CommonClass implements Initializable {
 
     @FXML
     void cancelHandler() {
-        FadeOut fadeOut = new FadeOut(gymPane);
+        FadeOut fadeOut = new FadeOut(listView.getParent());
         fadeOut.setOnFinished(e -> thisStage.close());
         fadeOut.play();
     }

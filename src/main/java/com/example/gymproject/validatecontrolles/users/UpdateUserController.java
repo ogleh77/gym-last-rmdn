@@ -63,6 +63,8 @@ public class UpdateUserController extends CommonClass implements Initializable {
     @FXML
     private Label warningMessage;
 
+    @FXML
+    private Label topText;
     private Users users;
     private final ToggleGroup roleToggle = new ToggleGroup();
 
@@ -115,7 +117,7 @@ public class UpdateUserController extends CommonClass implements Initializable {
             male.setDisable(true);
             shift.setItems(super.getShift());
         }
-
+        topText.setText("UPDATE ME");
         setUserData(activeUser);
     }
 

@@ -1,8 +1,6 @@
 package com.example.gymproject.validatecontrolles;
 
-import animatefx.animation.FadeIn;
-import animatefx.animation.SlideInLeft;
-import animatefx.animation.SlideOutLeft;
+import animatefx.animation.*;
 import com.example.gymproject.dto.main.GymService;
 import com.example.gymproject.entity.Customers;
 import com.example.gymproject.entity.Gym;
@@ -21,11 +19,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.MenuItem;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -45,13 +47,26 @@ public class DashboardController extends CommonClass implements Initializable {
     private VBox sidePane;
     @FXML
     private StackPane warningStack;
-    private Stage dashboardStage;
     private final Gym currentGym;
     private ObservableList<Customers> warningList;
     private boolean visible = false;
 
     @FXML
     private HBox menuHBox;
+
+    @FXML
+    private Circle activeProfile;
+    @FXML
+    private Label activeUserName;
+    @FXML
+    private MenuItem addUserBtn;
+    @FXML
+    private MenuItem backupBtn;
+    @FXML
+    private MenuItem updateUserBtn;
+    @FXML
+    private MenuItem gymBtn;
+
     public DashboardController() throws SQLException {
         this.currentGym = GymService.getGym();
     }
@@ -59,7 +74,6 @@ public class DashboardController extends CommonClass implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         Platform.runLater(() -> {
-            dashboardStage = (Stage) borderPane.getScene().getWindow();
             gymName.textProperty().bind(currentGym.gymNameProperty());
             borderPane.setLeft(null);
             try {
@@ -188,6 +202,40 @@ public class DashboardController extends CommonClass implements Initializable {
     @Override
     public void setActiveUser(Users activeUser) {
         super.setActiveUser(activeUser);
+        activeUserName.setText(activeUser.getUsername() + " [" + activeUser.getRole() + "]");
+        URL url;
+        final String[] profileImages = {
+                "/com/example/gymproject/style/icons/man-profile.jpeg",
+                "/com/example/gymproject/style/icons/woman-hijap.jpeg"
+        };
+
+        if (activeUser.getGender().equals("Male")) {
+            if (activeUser.getImage() == null) {
+                url = getClass().getResource(profileImages[0]);
+                activeProfile.setFill(new ImagePattern(new Image(String.valueOf(url))));
+            } else {
+                ByteArrayInputStream bis = new ByteArrayInputStream(activeUser.getImage());
+                Image image = new Image(bis);
+                activeProfile.setFill(new ImagePattern(image));
+            }
+
+        } else if (activeUser.getGender().equals("Female")) {
+            if (activeUser.getImage() == null) {
+                url = getClass().getResource(profileImages[1]);
+                activeProfile.setFill(new ImagePattern(new Image(String.valueOf(url))));
+            } else {
+                ByteArrayInputStream bis = new ByteArrayInputStream(activeUser.getImage());
+                Image image = new Image(bis);
+                activeProfile.setFill(new ImagePattern(image));
+            }
+        }
+
+        if (!activeUser.getRole().equals("super_admin")) {
+            backupBtn.setDisable(true);
+            updateUserBtn.setDisable(true);
+            addUserBtn.setDisable(true);
+            gymBtn.setDisable(true);
+        }
     }
 
     public void setWarningList(ObservableList<Customers> warningList) {
@@ -210,12 +258,44 @@ public class DashboardController extends CommonClass implements Initializable {
     }
 
     private void dashboard() throws IOException {
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/main/dashboard-menu.fxml"));
         AnchorPane anchorPane = loader.load();
-        DashboardMenuController controller = loader.getController();
-        controller.setMenus(borderPane, sidePane,menuHBox, warningStack);
-        controller.setActiveUser(activeUser);
-        borderPane.setCenter(anchorPane);
+        FadeInDown fadeIn = new FadeInDown(anchorPane);
+        //  fadeIn.setSpeed(2);
+        fadeIn.setOnFinished(e -> {
+            DashboardMenuController controller = loader.getController();
+            controller.setMenus(borderPane, sidePane, menuHBox, warningStack);
+            controller.setActiveUser(activeUser);
+            borderPane.setCenter(anchorPane);
+        });
+        fadeIn.play();
     }
-    // TODO: 25/03/2023 Hadii customer ku dashboard ku dhufto dhaman xidh top pane and side pane Insha Allah
+
+    @FXML
+    void closeHandler() {
+        closeStage();
+    }
+
+    @FXML
+    void logOutHandler() throws IOException {
+        closeStage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/service/login.fxml"));
+        Stage stage = new Stage(StageStyle.UNDECORATED);
+        Scene scene = new Scene(loader.load());
+        stage.setScene(scene);
+        stage.show();
+
+
+    }
+
+    private void closeStage() {
+        Stage stage = (Stage) activeProfile.getScene().getWindow();
+        FadeOut fadeOut = new FadeOut(activeProfile.getParent());
+        fadeOut.setSpeed(1);
+        fadeOut.setOnFinished(e -> {
+            stage.close();
+        });
+        fadeOut.play();
+    }
 }

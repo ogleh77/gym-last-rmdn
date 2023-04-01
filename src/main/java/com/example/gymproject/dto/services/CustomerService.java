@@ -89,9 +89,9 @@ public class CustomerService {
     }
 
     public static ObservableList<Customers> fetchAllCustomer(Users activeUser) throws SQLException {
-        if (allCustomersList == null) {
-            allCustomersList = customerModel.fetchAllCustomers(activeUser);
-        }
+
+        allCustomersList = customerModel.fetchAllCustomers(activeUser);
+
         System.out.println("Some one called me and I returned " + allCustomersList.hashCode());
         return allCustomersList;
     }

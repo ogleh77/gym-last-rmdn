@@ -95,6 +95,7 @@ public class SplashScreenController extends CommonClass implements Initializable
     @Override
     public void setActiveUser(Users activeUser) {
         super.setActiveUser(activeUser);
+        System.out.println("Active user is "+activeUser.getRole()+" "+activeUser.getUsername());
         Thread thread = new Thread(FetchOnlineCustomersByGander);
         thread.setDaemon(true);
         thread.start();

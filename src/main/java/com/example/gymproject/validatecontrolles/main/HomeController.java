@@ -63,6 +63,7 @@ public class HomeController extends CommonClass implements Initializable {
         Platform.runLater(() -> {
             initTable();
             searchFilter();
+            // TODO: 01/04/2023 Insha Allah card ka ku dhex qor info user active members adigo database ka xagiisa kasoo samynya
         });
      }
 
@@ -77,11 +78,7 @@ public class HomeController extends CommonClass implements Initializable {
         imagePath.setCellValueFactory(customers ->
                 new SimpleStringProperty(customers.getValue().getImage() == null ? "------------"
                         : "***+"));
-        try {
-            customersList = CustomerService.fetchAllCustomer(activeUser);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
         if (customersList.isEmpty()) {
             tableView.setPlaceholder(new Label("MACMIIL KUMA DIWAAN GASHANA"));
         } else {
@@ -134,7 +131,11 @@ public class HomeController extends CommonClass implements Initializable {
     @Override
     public void setActiveUser(Users activeUser) {
         super.setActiveUser(activeUser);
-
+        try {
+            customersList = CustomerService.fetchAllCustomer(activeUser);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

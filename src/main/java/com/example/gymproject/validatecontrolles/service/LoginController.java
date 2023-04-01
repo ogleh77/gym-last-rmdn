@@ -15,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ContentDisplay;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -36,6 +37,7 @@ public class LoginController extends CommonClass implements Initializable {
 
     private ObservableList<Users> users;
     private Stage currentStage;
+
 
     @FXML
     private ComboBox<Users> userCombo;
@@ -77,6 +79,7 @@ public class LoginController extends CommonClass implements Initializable {
 
     @FXML
     void loginHandler() {
+        // TODO: 01/04/2023 Make it enter event insha Allah
         if (isValid(getMandatoryFields(), null)) {
             loginBtn.setContentDisplay(ContentDisplay.RIGHT);
             if (start) {
@@ -88,6 +91,8 @@ public class LoginController extends CommonClass implements Initializable {
                 start = true;
             }
         }
+
+
     }
 
     @FXML
