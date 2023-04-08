@@ -9,6 +9,7 @@ module com.example.gymproject {
 
     opens com.example.gymproject to javafx.fxml;
     opens com.example.gymproject.controllers to javafx.fxml;
+    opens com.example.gymproject.controllers.service to javafx.fxml;
 
     exports com.example.gymproject;
     exports com.example.gymproject.entity;

@@ -40,6 +40,49 @@ public class CustomerModel {
 
     }
 
+    public ObservableList<Customers> fetchOfflineCustomers(Users activeUser) throws SQLException {
+        System.out.println("Called offline customers");
+        ObservableList<Customers> customers = FXCollections.observableArrayList();
+
+        String fetchCustomers = fetchByRoleAndGander(activeUser.getGender(), activeUser.getRole());
+
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(fetchCustomers);
+
+        while (rs.next()) {
+            String customerPhone = rs.getString("phone");
+            ObservableList<Payments> payments = PaymentService.fetchCustomersOfflinePayment(customerPhone);
+            if (payments == null || payments.isEmpty()) {
+                continue;
+            }
+            getCustomers(customers, rs,payments);
+        }
+        rs.close();
+        statement.close();
+        return customers;
+    }
+
+    public ObservableList<Customers> fetchOnlineCustomers(Users activeUser) throws SQLException {
+        System.out.println("Called offline customers");
+        ObservableList<Customers> customers = FXCollections.observableArrayList();
+
+        String fetchCustomers = fetchByRoleAndGander(activeUser.getGender(), activeUser.getRole());
+
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery(fetchCustomers);
+
+        while (rs.next()) {
+            String customerPhone = rs.getString("phone");
+            ObservableList<Payments> payments = PaymentService.fetchCustomersOnlinePayment(customerPhone);
+            if (payments == null || payments.isEmpty()) {
+                continue;
+            }
+            getCustomers(customers, rs,payments);
+        }
+        rs.close();
+        statement.close();
+        return customers;
+    }
 
     public ObservableList<Customers> fetchAllCustomers(Users activeUser) throws SQLException {
         System.out.println("Called customers");
@@ -52,7 +95,7 @@ public class CustomerModel {
         ResultSet rs = statement.executeQuery(fetchCustomers);
 
         while (rs.next()) {
-            getCustomers(customers, rs);
+            getCustomers(customers, rs, null);
         }
 
         rs.close();
@@ -90,13 +133,16 @@ public class CustomerModel {
     }
     //---------------––Helpers---------------------
 
-    private void getCustomers(ObservableList<Customers> customers, ResultSet rs) throws SQLException {
+    private void getCustomers(ObservableList<Customers> customers, ResultSet rs, ObservableList<Payments> payment) throws SQLException {
         Customers customer = new Customers(rs.getInt("customer_id"), rs.getString("first_name")
                 , rs.getString("last_name"), rs.getString("middle_name"),
                 rs.getString("phone"), rs.getString("gander"), rs.getString("shift")
                 , rs.getString("address"), rs.getString("image"), rs.getDouble("weight"),
                 rs.getString("who_added"));
 
+        if (payment != null) {
+            customer.setPayments(payment);
+        }
         customers.add(customer);
     }
 

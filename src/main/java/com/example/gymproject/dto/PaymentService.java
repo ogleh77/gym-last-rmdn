@@ -45,6 +45,7 @@ public class PaymentService {
             throw new CustomException(e.getMessage());
         }
     }
+
     public static ObservableList<Payments> fetchAllCustomersPayments(String customerPhone) throws CustomException {
         try {
             return paymentModel.fetchAllCustomersPayments(customerPhone);
@@ -55,6 +56,13 @@ public class PaymentService {
 
     }
 
+    public static ObservableList<Payments> fetchCustomersOnlinePayment(String customerPhone) throws SQLException {
+        return paymentModel.fetchCustomersOnlinePayment(customerPhone);
+    }
+
+    public static ObservableList<Payments> fetchCustomersOfflinePayment(String customerPhone) throws SQLException {
+        return paymentModel.fetchCustomersOfflinePayment(customerPhone);
+    }
     public static ObservableList<Payments> fetchQualifiedOfflinePayment(String customerPhone, String fromDate, String toDate) throws SQLException {
         return paymentModel.fetchQualifiedOfflinePayment(customerPhone, fromDate, toDate);
     }

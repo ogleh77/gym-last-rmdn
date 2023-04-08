@@ -5,17 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="53d89cb0-db6f-4418-906f-24ac9edf989a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/54c41628-eec8-47fc-aa3a-cd8b52cb159f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/54c41628-eec8-47fc-aa3a-cd8b52cb159f.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service/SplashScreenController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service/WarningController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons/bike.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons/icons8-account-50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons/icons8-forgot-password-50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons/loading_girl.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons/loading_man.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/service/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/service/splash-screen.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/service/warning.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/database.db" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/database.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/DailyReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/DailyReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/CustomerInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/done/CustomerInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Payments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity/Payments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/dto/PaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/helpers/CommonClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/helpers/CommonClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/CustomerModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/CustomerModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/dailyReports.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done/dailyReports.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/PaymentModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/gymproject/model/PaymentModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/com/example/gymproject/dto/CustomerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/com/example/gymproject/dto/CustomerServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +39,8 @@
       <list>
         <option value="FxmlFile" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -56,7 +67,7 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mrd/Desktop/Desktop/gym-project/src/main/java/com/example/gymproject/model&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mrd/Desktop/Desktop/gym-project/src/main/java/com/example/gymproject/controllers/service&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
@@ -72,11 +83,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers/service" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/service" />
+      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymproject/model" />
       <recent name="$PROJECT_DIR$/src/main/java/com/example/gymproject/entity" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/example/gymproject/controllers" />
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views" />
-      <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/style/icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/com/example/gymproject/views/done" />
@@ -91,7 +102,7 @@
       <recent name="com.example.gymproject.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CustomerServiceTest.deleteCustomer">
+  <component name="RunManager" selected="Application.HelloApplication">
     <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.gymproject.HelloApplication" />
       <module name="gym-project" />
@@ -116,22 +127,6 @@
       <option name="PACKAGE_NAME" value="com.example.gymproject.model" />
       <option name="MAIN_CLASS_NAME" value="com.example.gymproject.model.CustomerModelTest" />
       <option name="METHOD_NAME" value="fetchQualifiedOfflineCustomers" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CustomerModelTest.insertCustomer" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gym-project" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.gymproject.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.gymproject.model" />
-      <option name="MAIN_CLASS_NAME" value="com.example.gymproject.model.CustomerModelTest" />
-      <option name="METHOD_NAME" value="insertCustomer" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -169,13 +164,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CustomerServiceTest.fetchQualifiedOfflineCustomers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gym-project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.gymproject.dto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.gymproject.dto" />
+      <option name="MAIN_CLASS_NAME" value="com.example.gymproject.dto.CustomerServiceTest" />
+      <option name="METHOD_NAME" value="fetchQualifiedOfflineCustomers" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CustomerServiceTest.deleteCustomer" />
         <item itemvalue="Application.HelloApplication" />
+        <item itemvalue="JUnit.CustomerServiceTest.fetchQualifiedOfflineCustomers" />
         <item itemvalue="JUnit.CustomerServiceTest.fetchAllCustomer" />
+        <item itemvalue="JUnit.CustomerServiceTest.deleteCustomer" />
         <item itemvalue="JUnit.CustomerModelTest.fetchQualifiedOfflineCustomers" />
-        <item itemvalue="JUnit.CustomerModelTest.insertCustomer" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +211,8 @@
       <workItem from="1679850105982" duration="1779000" />
       <workItem from="1679851914565" duration="7142000" />
       <workItem from="1679893585595" duration="12744000" />
-      <workItem from="1679916909279" duration="1520000" />
+      <workItem from="1679916909279" duration="6291000" />
+      <workItem from="1680008602715" duration="2445000" />
     </task>
     <servers />
   </component>

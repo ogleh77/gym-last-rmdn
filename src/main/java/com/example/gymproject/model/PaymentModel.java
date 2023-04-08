@@ -101,7 +101,28 @@ public class PaymentModel {
 
 
     }
+    public ObservableList<Payments> fetchCustomersOnlinePayment(String customerPhone) throws SQLException {
 
+        ObservableList<Payments> payments = FXCollections.observableArrayList();
+        Statement statement = connection.createStatement();
+
+        Payments payment = null;
+        ResultSet rs = statement.executeQuery("SELECT * FROM payments LEFT JOIN box b on payments.box_fk = b.box_id " + "WHERE customer_phone_fk=" + customerPhone + "  AND pending=false AND is_online=true");
+
+        return getPayments(payments, statement, rs);
+    }
+
+    public ObservableList<Payments> fetchCustomersOfflinePayment(String customerPhone) throws SQLException {
+
+        ObservableList<Payments> payments = FXCollections.observableArrayList();
+        Statement statement = connection.createStatement();
+
+        ResultSet rs = statement.executeQuery("SELECT * FROM payments LEFT JOIN box b on payments.box_fk = b.box_id " + "WHERE customer_phone_fk=" + customerPhone + "  AND pending=false AND is_online=false");
+
+
+        return getPayments(payments, statement, rs);
+
+    }
     public ObservableList<Payments> fetchAllCustomersPayments(String phone) throws SQLException {
         //-------Fetch payments according to customer that belongs--------tested......
 

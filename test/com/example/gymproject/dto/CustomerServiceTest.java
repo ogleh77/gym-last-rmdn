@@ -1,12 +1,9 @@
 package com.example.gymproject.dto;
 
-import com.example.gymproject.entity.Customers;
-import com.example.gymproject.entity.Payments;
 import com.example.gymproject.entity.Users;
 import org.junit.jupiter.api.Test;
 
 import java.sql.SQLException;
-import java.time.LocalDate;
 
 class CustomerServiceTest {
 
@@ -49,7 +46,10 @@ class CustomerServiceTest {
     }
 
     @Test
-    void fetchQualifiedOfflineCustomers() {
+    void fetchQualifiedOfflineCustomers() throws SQLException {
+        Users user = UserService.users().get(0);
+
+        System.out.println(CustomerService.fetchOfflineCustomer(user));
     }
 
     @Test

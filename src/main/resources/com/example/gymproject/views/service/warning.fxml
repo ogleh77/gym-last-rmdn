@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="518.0" prefWidth="468.0" stylesheets="@../../style/css/small-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.controllers.service.WarningController">
+    <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="596.0" spacing="180.0" styleClass="top-pane">
+        <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="342.0">
+            <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+                <Image url="@../../style/icons/icons8-bell-48.png" />
+            </ImageView>
+            <Label prefHeight="29.0" prefWidth="218.0" styleClass="top-label" text="Warnings">
+                <HBox.margin>
+                    <Insets left="10.0" />
+                </HBox.margin>
+            </Label>
+        </HBox>
+        <HBox alignment="CENTER" prefHeight="45.0" prefWidth="49.0" styleClass="cancel-pane">
+            <HBox.margin>
+                <Insets left="25.0" />
+            </HBox.margin>
+            <ImageView fitHeight="32.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="@../../style/icons/icons8-close-30.png" />
+            </ImageView>
+        </HBox>
+    </HBox>
+    <ScrollPane hbarPolicy="NEVER" layoutY="85.0" prefHeight="456.0" prefWidth="596.0">
+        <VBox fx:id="vbox" alignment="CENTER" prefHeight="4.0" prefWidth="595.0" spacing="5.0">
+            <padding>
+                <Insets top="10.0" />
+            </padding>
+        </VBox>
+    </ScrollPane>
+    <Label layoutX="11.0" layoutY="54.0" styleClass="label-background" text="outdated today">
+        <font>
+            <Font size="15.0" />
+        </font>
+    </Label>
+    <effect>
+        <DropShadow height="38.79" radius="17.4125" spread="0.03" width="32.86" />
+    </effect>
+</AnchorPane>

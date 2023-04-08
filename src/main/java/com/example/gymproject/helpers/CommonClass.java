@@ -46,7 +46,8 @@ public abstract class CommonClass {
     protected Gym currentGym;
     public final String[] images = {
             "/com/example/gymproject/style/icons/loading_5.gif",
-
+            "/com/example/gymproject/style/icons/loading_man.gif",
+            "/com/example/gymproject/style/icons/loading_girl.gif"
     };
 
     public CommonClass() {

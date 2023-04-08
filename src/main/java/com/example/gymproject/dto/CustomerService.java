@@ -59,6 +59,22 @@ public class CustomerService {
 
     }
 
+    public static ObservableList<Customers> fetchOfflineCustomer(Users activeUser) throws SQLException {
+        if (offlineCustomers == null) {
+            offlineCustomers = customerModel.fetchOfflineCustomers(activeUser);
+        }
+        return offlineCustomers;
+    }
+
+    public static ObservableList<Customers> fetchOnlineCustomer(Users activeUser) throws SQLException {
+        System.out.println("Online customers Called");
+        if (onlineCustomers == null) {
+            onlineCustomers = customerModel.fetchOnlineCustomers(activeUser);
+            // Collections.sort(allCustomersList);
+        }
+        return onlineCustomers;
+    }
+
     public static ObservableList<Customers> fetchAllCustomer(Users activeUser) throws SQLException {
         if (allCustomersList == null) {
             allCustomersList = customerModel.fetchAllCustomers(activeUser);
