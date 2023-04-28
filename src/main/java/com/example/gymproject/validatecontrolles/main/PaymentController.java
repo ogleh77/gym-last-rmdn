@@ -121,7 +121,11 @@ public class PaymentController extends CommonClass implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, customer.getFirstName() + " Waxad u samaysay payment cusub", ok);
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.isPresent() && result.get() == ok) {
-                    System.out.println("Backing to home");
+                    try {
+                        backGoToHome();
+                    } catch (IOException ex) {
+                        errorMessage(ex.getMessage());
+                    }
                 } else {
                     createBtn.setDisable(true);
                 }
@@ -149,7 +153,7 @@ public class PaymentController extends CommonClass implements Initializable {
     @Override
     public void setCustomer(Customers customer) {
         super.setCustomer(customer);
-         if (customer != null) {
+        if (customer != null) {
             firstName.setText(customer.getFirstName());
             middleName.setText(customer.getFirstName());
             lastName.setText(customer.getFirstName());

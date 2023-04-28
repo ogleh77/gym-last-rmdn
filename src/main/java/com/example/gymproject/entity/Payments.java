@@ -21,7 +21,7 @@ public class Payments {
     private String customerFK;
     private final SimpleBooleanProperty online = new SimpleBooleanProperty();
     private final SimpleBooleanProperty pending = new SimpleBooleanProperty();
-    private final JFXButton pendingBtn;
+    private   JFXButton pendingBtn;
 
     public Payments(int paymentID, String paymentDate, LocalDate expDate, String month, String year, double amountPaid, String paidBy, double discount, boolean poxing, String customerFK, boolean online, boolean pending) {
         this.paymentID = paymentID;
@@ -36,18 +36,18 @@ public class Payments {
         this.customerFK = customerFK;
         this.setOnline(online);
         this.setPending(pending);
-        this.pendingBtn = new JFXButton("Haki");
-        String unPendStyle = "-fx-background-color: red;-fx-text-fill: white;-fx-font-family:Verdana;-fx-pref-width: 100;-fx-font-size: 15";
-        String pendStyle = "-fx-background-color: #afd6e3;-fx-text-fill: black;-fx-font-family:Verdana;-fx-pref-width: 100;-fx-font-size: 15";
-        pendingBtn.setStyle(pendStyle);
-        if (!this.online.get() && !this.pending.get()) {
-            this.pendingBtn.setText("----");
-            this.pendingBtn.setDisable(true);
-            this.pendingBtn.setStyle(unPendStyle);
-        } else if (this.isPending() && !this.isOnline()) {
-            this.getPendingBtn().setStyle(unPendStyle);
-            this.getPendingBtn().setText("Fur");
-        }
+//        this.pendingBtn = new JFXButton("Haki");
+//        String unPendStyle = "-fx-background-color: red;-fx-text-fill: white;-fx-font-family:Verdana;-fx-pref-width: 100;-fx-font-size: 15";
+//        String pendStyle = "-fx-background-color: #afd6e3;-fx-text-fill: black;-fx-font-family:Verdana;-fx-pref-width: 100;-fx-font-size: 15";
+//        pendingBtn.setStyle(pendStyle);
+//        if (!this.online.get() && !this.pending.get()) {
+//            this.pendingBtn.setText("----");
+//            this.pendingBtn.setDisable(true);
+//            this.pendingBtn.setStyle(unPendStyle);
+//        } else if (this.isPending() && !this.isOnline()) {
+//            this.getPendingBtn().setStyle(unPendStyle);
+//            this.getPendingBtn().setText("Fur");
+//        }
     }
 
     public int getPaymentID() {

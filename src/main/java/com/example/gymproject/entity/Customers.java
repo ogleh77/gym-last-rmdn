@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class Customers {
+public class Customers implements Comparable<Customers> {
     private int customerId;
     private final SimpleStringProperty firstName = new SimpleStringProperty();
     private final SimpleStringProperty lastName = new SimpleStringProperty();
@@ -172,9 +172,22 @@ public class Customers {
 
     @Override
     public String toString() {
-        return "\n [customerId: " +
-                customerId + " firstname: " +
-                firstName + "  lastname: " +
-                lastName + " gander " + gander + " phone: " + phone + "weight: " + weight + "\n payments: " + payments + "]\n\n";
+        return "\n [customerId: " + customerId + " firstname: " + firstName + "  lastname: " + lastName + " gander " + gander + " phone: " + phone + "weight: " + weight + "\n payments: " + payments + "]\n\n";
     }
+
+    @Override
+    public int compareTo(Customers o) {
+        if (this.payments.get(0).getExpDate().isAfter(o.payments.get(0).getExpDate())) return 1;
+        return 0;
+    }
+
+//    @Override
+//    public int compareTo(Customers o) {
+//        if (this.getPayments() != null && this.getPayments().isEmpty()) {
+//            if (this.getPayments().get(0).getExpDate().isBefore(o.payments.get(0).getExpDate()))
+//                return 1;
+//        }
+//
+//        return 0;
+//    }
 }

@@ -71,6 +71,7 @@ public class PaymentModel {
             connection.rollback();
         }
     }
+
     public void unHold(Payments payment) throws SQLException {
         connection.setAutoCommit(false);
         Statement statement = connection.createStatement();
@@ -102,13 +103,14 @@ public class PaymentModel {
 
 
     }
+
     public ObservableList<Payments> fetchCustomersOnlinePayment(String customerPhone) throws SQLException {
 
         ObservableList<Payments> payments = FXCollections.observableArrayList();
         Statement statement = connection.createStatement();
 
         Payments payment = null;
-        ResultSet rs = statement.executeQuery("SELECT * FROM payments LEFT JOIN box b on payments.box_fk = b.box_id " + "WHERE customer_phone_fk=" + customerPhone + "  AND pending=false AND is_online=true");
+        ResultSet rs = statement.executeQuery("SELECT * FROM payments LEFT JOIN box b on payments.box_fk = b.box_id " + "WHERE customer_phone_fk=" + customerPhone + "  AND pending=false AND is_online=true ORDER BY exp_date DESC ");
 
         return getPayments(payments, statement, rs);
     }
@@ -118,12 +120,13 @@ public class PaymentModel {
         ObservableList<Payments> payments = FXCollections.observableArrayList();
         Statement statement = connection.createStatement();
 
-        ResultSet rs = statement.executeQuery("SELECT * FROM payments LEFT JOIN box b on payments.box_fk = b.box_id " + "WHERE customer_phone_fk=" + customerPhone + "  AND pending=false AND is_online=false");
+        ResultSet rs = statement.executeQuery("SELECT * FROM payments LEFT JOIN box b on payments.box_fk = b.box_id " + "WHERE customer_phone_fk=" + customerPhone + "  AND pending=false AND is_online=false ");
 
 
         return getPayments(payments, statement, rs);
 
     }
+
     public ObservableList<Payments> fetchAllCustomersPayments(String phone) throws SQLException {
         //-------Fetch payments according to customer that belongs--------tested......
 
@@ -131,7 +134,7 @@ public class PaymentModel {
         Statement statement = connection.createStatement();
 
         Payments payment = null;
-        ResultSet rs = statement.executeQuery("SELECT * FROM payments LEFT JOIN box b on payments.box_fk = b.box_id " + "WHERE customer_phone_fk=" + phone + " ORDER BY exp_date DESC");
+        ResultSet rs = statement.executeQuery("SELECT * FROM payments LEFT JOIN box b on payments.box_fk = b.box_id " + "WHERE customer_phone_fk=" + phone + " ORDER BY exp_date ASC ");
 
         return getPayments(payments, statement, rs);
     }
@@ -167,6 +170,7 @@ public class PaymentModel {
         System.out.println(Arrays.toString(arr));
         st.close();
     }
+
     private int daysRemain(int paymentID) throws SQLException {
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * FROM pending WHERE payment_fk=" + paymentID);

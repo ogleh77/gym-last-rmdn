@@ -10,6 +10,7 @@ import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CommonClass;
 import com.example.gymproject.validatecontrolles.info.OutDatedController;
 import com.example.gymproject.validatecontrolles.info.WarningController;
+import com.example.gymproject.validatecontrolles.main.DashboardMenuController;
 import com.example.gymproject.validatecontrolles.main.HomeController;
 import com.example.gymproject.validatecontrolles.main.RegistrationController;
 import com.example.gymproject.validatecontrolles.users.UpdateUserController;
@@ -162,7 +163,7 @@ public class DashboardController extends CommonClass implements Initializable {
     }
 
     @FXML
-    void warningHandler(MouseEvent event) throws IOException {
+    void warningHandler() throws IOException {
         if (!warningList.isEmpty()) {
             warningParent.setVisible(false);
         }

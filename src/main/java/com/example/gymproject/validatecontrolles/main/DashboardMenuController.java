@@ -1,4 +1,4 @@
-package com.example.gymproject.validatecontrolles;
+package com.example.gymproject.validatecontrolles.main;
 
 import com.example.gymproject.entity.Users;
 import com.example.gymproject.helpers.CommonClass;

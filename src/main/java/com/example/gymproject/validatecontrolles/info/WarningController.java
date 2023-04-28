@@ -18,21 +18,19 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 public class WarningController extends CommonClass implements Initializable {
     @FXML
     private VBox vbox;
-    private ObservableList<Customers> outdatedCustomers;
     private Stage thisStage;
     @FXML
     private AnchorPane warningPane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Platform.runLater(() -> {
-            this.thisStage = (Stage) vbox.getScene().getWindow();
-        });
+        Platform.runLater(() -> this.thisStage = (Stage) warningPane.getScene().getWindow());
     }
 
     @FXML
@@ -46,18 +44,18 @@ public class WarningController extends CommonClass implements Initializable {
     }
 
     public void setOutdatedCustomers(ObservableList<Customers> outdatedCustomers) {
-        this.outdatedCustomers = outdatedCustomers;
         if (!outdatedCustomers.isEmpty()) {
             FXMLLoader loader;
             AnchorPane anchorPane;
             for (Customers customer : outdatedCustomers) {
-                loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/done/customer-card.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/com/example/gymproject/views/info/customer-card.fxml"));
                 try {
                     anchorPane = loader.load();
                     CardController controller = loader.getController();
                     controller.setCustomer(customer);
 
                 } catch (IOException e) {
+                    e.printStackTrace();
                     throw new RuntimeException(e);
                 }
 

@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Collections;
 
 public class CustomerService {
 
@@ -82,7 +83,7 @@ public class CustomerService {
         System.out.println("Online customers Called");
         if (onlineCustomers == null) {
             onlineCustomers = customerModel.fetchOnlineCustomers(activeUser);
-            // Collections.sort(allCustomersList);
+            Collections.sort(onlineCustomers);
         }
         return onlineCustomers;
     }

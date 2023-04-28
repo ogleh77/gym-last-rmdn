@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="dashboard" stylesheets="@../../style/css/long-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.validatecontrolles.DashboardMenuController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="dashboard" stylesheets="@../../style/css/long-style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gymproject.validatecontrolles.main.DashboardMenuController">
    <children>
        <VBox alignment="CENTER" layoutX="201.0" layoutY="190.0" prefHeight="60.0" prefWidth="101.0" AnchorPane.rightAnchor="898.0">
            <Text fill="#5e5b5b" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu list">

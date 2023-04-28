@@ -24,6 +24,7 @@ import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 public class OutDatedController extends CommonClass implements Initializable {
@@ -108,7 +109,7 @@ public class OutDatedController extends CommonClass implements Initializable {
 
     private GridPane createPage(int index) {
         int column = 0;
-
+        Collections.sort(outDatedCustomers);
         int perPage = 4;
         int fromPage = perPage * index;
         int toIndex = Math.min(fromPage + perPage, outDatedCustomers.size());
@@ -198,6 +199,7 @@ public class OutDatedController extends CommonClass implements Initializable {
                         String customerQuery = customerQuery();
 
                         outDatedCustomers = CustomerService.fetchQualifiedOfflineCustomers(customerQuery, fromDate.getValue(), toDate.getValue());
+
                         System.out.println("Hash I returned in service" + outDatedCustomers);
 // TODO: 26/03/2023 insha Allah test garee method kan  fetchQualifiedOfflineCustomers
                     } catch (Exception e) {

@@ -67,9 +67,6 @@ public class CardController extends CommonClass implements Initializable {
             imageUploaded = true;
             customerPhoto.setImage(image);
         }
-
-
-        // TODO: 24/03/2023 Message   print insha Allah e.g             outDated.setText(period.getYears() == 1 ? period.getYears() + " year " + period.getMonths() + " months and " + period.getYears() + " days ago " : period.getYears() + " years ago");
     }
 
 

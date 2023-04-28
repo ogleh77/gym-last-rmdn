@@ -103,7 +103,6 @@ public class RegistrationController extends CommonClass implements Initializable
             registerBtn.setText(isCustomerNew ? "Payment" : "Updated");
 
             if (done && isCustomerNew) {
-
                 paymentMethod();
             }
         });
@@ -305,6 +304,7 @@ public class RegistrationController extends CommonClass implements Initializable
         PaymentController controller = loader.getController();
         controller.setCustomer(customer);
         controller.setActiveUser(activeUser);
+        controller.setBorderPane(borderPane);
     }
 
     private void clear() {
